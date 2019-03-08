@@ -1,15 +1,17 @@
 <template>
   <div>
+    <MainNavbar />
     <nuxt />
     <MainFooter />
   </div>
 </template>
 
 <script>
+import MainNavbar from '~/components/Navbar.vue'
 import MainFooter from '~/components/Footer.vue'
 
 export default {
-  components: { MainFooter }
+  components: { MainNavbar, MainFooter }
 }
 </script>
 
@@ -17,6 +19,7 @@ export default {
 body,
 html {
   height: 100%;
+  background-image: url('/paper.png');
 }
 body {
   margin: 0;
