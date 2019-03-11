@@ -9,7 +9,7 @@
       <footer class="card-footer">
         <div class="card-footer-item">
           <div class="buttons">
-            <button class="button" :class="[gradientButton ? 'button-gradient-dark' : 'button-gradient-light']">
+            <button class="button" :class="[gradientButton ? 'button-gradient-dark' : 'button-gradient-light']" @click="copyLink(gif.bitly_url)">
               <div class="icon">
                 <i class="fas fa-link" />
               </div>
@@ -60,6 +60,18 @@ export default {
         return false
       }
     }
+  },
+  methods: {
+    copyLink(link) {
+      navigator.clipboard.writeText(link).then(
+        function() {
+          alert('¡Copiado al portapapeles!')
+        },
+        function(err) {
+          alert('No se pudo copiar el texto: ', err)
+        }
+      )
+    }
   }
 }
 </script>
@@ -102,13 +114,9 @@ export default {
   border: none
 }
 .button:hover {
-  /* -webkit-transform: scale(1.02);
-  transform: scale(1.02); */
   box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .button-gradient-dark:hover {
-  /* -webkit-transform: scale(1.02);
-  transform: scale(1.02); */
   box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(230, 230, 230, 0.19);
 }
 .button-gradient-dark {
