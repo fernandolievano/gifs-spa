@@ -10,6 +10,21 @@
         <span aria-hidden="true" />
       </a>
     </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="control has-icons-left">
+          <input type="text" class="input" placeholder="Busca tus gifs favoritos">
+          <span class="icon is-left is-small">
+            <i class="fas fa-search" />
+          </span>
+        </div>
+      </div>
+      <div class="navbar-item">
+        <button class="button is-primary is-outlined">
+          Buscar
+        </button>
+      </div>
+    </div>
   </nav>
 </template>
 

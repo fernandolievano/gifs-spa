@@ -2,13 +2,19 @@
   <section class="container is-fluid">
     <div class="columns is-vcentered">
       <div class="column is-full">
-        <h1 class="is-size-1">Tendencias</h1>
+        <h1 class="is-size-1">
+          Tendencias
+        </h1>
       </div>
     </div>
-    <div class="columns">
-      <div class=" horizontal-scrolling">
-        <GifCard v-for="gif in gifs" :key="gif.id" :gif="gif" />
-      </div>
+    <div class="columns is-multiline is-vcentered">
+      <GifCard
+        v-for="gif in gifs"
+        :key="gif.id"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        :gif="gif"
+      />
     </div>
   </section>
 </template>
@@ -30,25 +36,7 @@ export default {
 </script>
 
 <style media="screen">
-.horizontal-scrolling {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  .column {
-    flex: 0 0 auto;
-  }
-}
-.horizontal-scrolling::-webkit-scrollbar {
-  width: 5px;
-}
-.horizontal-scrolling::-webkit-scrollbar-track {
-  background: #421b9b;
-}
-.horizontal-scrolling::-webkit-scrollbar-thumb {
-  background: hsl(204, 86%, 53%);
-  transition: 5s;
-}
-.horizontal-scrolling::-webkit-scrollbar-thumb:hover {
-  background: #503bff;
+button {
+  transition: all 0.2s linear;
 }
 </style>

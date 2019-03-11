@@ -13,7 +13,16 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css',
+        integrity:
+          'sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr',
+        crossorigin: 'anonymous'
+      }
+    ]
   },
 
   /*
@@ -29,7 +38,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: [{ src: '~/plugins/aos', ssr: false }],
 
   /*
   ** Nuxt.js modules
@@ -39,19 +48,7 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
-    '@nuxtjs/pwa',
-    [
-      'nuxt-fontawesome',
-      {
-        component: 'fa',
-        imports: [
-          {
-            set: '@fortawesome/free-solid-svg-icons',
-            icons: ['fas']
-          }
-        ]
-      }
-    ]
+    '@nuxtjs/pwa'
   ],
   /*
   ** Axios module configuration

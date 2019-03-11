@@ -1,11 +1,22 @@
 <template lang="html">
   <div class="column is-4">
-    <div class="card" :class="randomBackground">
+    <div class="card shadow" :class="randomBackground">
       <div class="card-content">
         <div class="content">
           <img :src="gif.images.downsized.url" :alt="gif.slug" class="gif">
         </div>
       </div>
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          <div class="buttons">
+            <button class="button" :class="[gradientButton ? 'button-gradient-dark' : 'button-gradient-light']">
+              <div class="icon">
+                <i class="fas fa-link" />
+              </div>
+            </button>
+          </div>
+        </div>
+      </footer>
     </div>
   </div>
 </template>
@@ -23,7 +34,6 @@ export default {
     return {
       backgrounds: [
         'has-background-black',
-        'has-background-light',
         'has-background-dark',
         'has-background-primary',
         'has-background-info',
@@ -42,6 +52,13 @@ export default {
     randomBackground() {
       const backgrounds = this.backgrounds
       return backgrounds[Math.floor(Math.random() * backgrounds.length)]
+    },
+    gradientButton() {
+      if (this.randomBackground === 'has-background-black') {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
@@ -50,15 +67,9 @@ export default {
 <style lang="css" scoped>
 .gif {
   width: 100%;
+  min-height: 100% !important;
   margin-top: auto;
   margin-bottom: auto;
-}
-.card {
-  min-height: 100%;
-}
-.content {
-  align-items: center;
-  display: flex;
 }
 .has-background-purple {
   background-color: #421b9b
@@ -79,5 +90,33 @@ export default {
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+}
+.card-content .content {
+  min-height: 100%;
+}
+.card-footer {
+  background: none !important;
+  border:none;
+}
+.button {
+  border: none
+}
+.button:hover {
+  /* -webkit-transform: scale(1.02);
+  transform: scale(1.02); */
+  box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.button-gradient-dark:hover {
+  /* -webkit-transform: scale(1.02);
+  transform: scale(1.02); */
+  box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(230, 230, 230, 0.19);
+}
+.button-gradient-dark {
+  background: linear-gradient(to bottom, #a7d129, #99FFFF);
+  color: #1B2631;
+}
+.button-gradient-light {
+  background: linear-gradient(to bottom,  #633974, #1A5276);
+  color: #D6DBDF;
 }
 </style>
