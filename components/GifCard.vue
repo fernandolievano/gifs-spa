@@ -125,4 +125,7 @@ export default {
   background: linear-gradient(to bottom,  #633974, #1A5276);
   color: #D6DBDF;
 }
+footer {
+  margin-top: 0;
+}
 </style>

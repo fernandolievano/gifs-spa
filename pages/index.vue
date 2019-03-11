@@ -2,7 +2,7 @@
   <section class="container is-fluid">
     <div class="columns is-vcentered">
       <div class="column is-full">
-        <h1 class="is-size-1">
+        <h1 class="encabezado">
           Tendencias
         </h1>
       </div>

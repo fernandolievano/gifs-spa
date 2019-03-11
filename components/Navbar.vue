@@ -12,7 +12,7 @@
     </div>
     <div class="navbar-end">
       <div v-if="isSearching" class="navbar-item">
-        <p>Buscando gifs...</p>
+        <p>Buscando gifs...</p> <i class="far fa-smile-wink" />
       </div>
       <div v-if="success && resultButton" class="navbar-item">
         <n-link to="/resultados" class="button">

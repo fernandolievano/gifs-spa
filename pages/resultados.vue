@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <div class="">
     <div class="columns">
-      <div class="column is-full">
-        <h1 v-if="resultados.length > 0" class="is-size-1">
+      <div class="column is-full has-text-centered">
+        <h1 v-if="resultados.length > 0" class="encabezado">
           Resultados...
         </h1>
-        <h1 v-else class="is-size-1">
-          No hay resultados para mostrar
+        <h1 v-else class="encabezado has-text-danger">
+          No hay resultados para mostrar... <span><i class="fas fa-heart-broken" /></span>
         </h1>
       </div>
     </div>

@@ -34,4 +34,7 @@ footer {
   bottom: 0;
   left: 0;
 }
+.encabezado {
+  font-size: 5em;
+}
 </style>
