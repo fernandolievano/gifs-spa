@@ -8,13 +8,11 @@
       </div>
       <footer class="card-footer">
         <div class="card-footer-item">
-          <div class="buttons">
-            <button class="button" :class="[gradientButton ? 'button-gradient-dark' : 'button-gradient-light']" @click="copyLink(gif.bitly_url)">
-              <div class="icon">
-                <i class="fas fa-link" />
-              </div>
-            </button>
-          </div>
+          <button class="button is-fullwidth" :class="[gradientButton ? 'button-gradient-dark' : 'button-gradient-light']" @click="copyLink(gif.bitly_url)">
+            <div class="icon">
+              <i class="fas fa-link" />
+            </div>
+          </button>
         </div>
       </footer>
     </div>

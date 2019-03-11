@@ -28,11 +28,11 @@ export const actions = {
     )
     commit('SET_GIFS', response.data)
   },
-  async searchGifs({ commit, state }) {
+  async searchGifs({ commit, state }, query) {
     const response = await this.$axios.$get(
       `https://api.giphy.com/v1/gifs/search?api_key=${env.API_KEY}&limit=${
         state.limit
-      }&rating=${state.rating}`
+      }&rating=${state.rating}&q=${query}`
     )
     commit('SET_RESULTS', response.data)
   }
