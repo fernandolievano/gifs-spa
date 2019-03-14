@@ -1,9 +1,12 @@
 <template lang="html">
-  <div class="column is-4">
+  <div class="column is-6-tablet">
     <div class="card shadow" :class="randomBackground">
       <div class="card-content">
         <div class="content">
           <img :src="gif.images.downsized.url" :alt="gif.slug" class="gif">
+          <p class="is-italic" :class="[darkText ? 'has-text-grey-dark' : 'has-text-white-ter']">
+            {{ gif.title }}
+          </p>
         </div>
       </div>
       <footer class="card-footer">
@@ -57,18 +60,22 @@ export default {
       } else {
         return false
       }
+    },
+    darkText() {
+      if (
+        this.randomBackground === 'has-background-warning' ||
+        this.randomBackground === 'has-background-lime'
+      ) {
+        return true
+      } else {
+        return false
+      }
     }
   },
   methods: {
-    copyLink(link) {
-      navigator.clipboard.writeText(link).then(
-        function() {
-          alert('¡Copiado al portapapeles!')
-        },
-        function(err) {
-          alert('No se pudo copiar el texto: ', err)
-        }
-      )
+    async copyLink(link) {
+      await navigator.clipboard.writeText(link)
+      this.$toast.success('¡Copiado al portapapeles!')
     }
   }
 }

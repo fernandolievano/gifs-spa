@@ -1,5 +1,5 @@
 <template>
-  <section class="container is-fluid">
+  <section class="container">
     <div class="columns is-vcentered">
       <div class="column is-full">
         <h1 class="encabezado">
@@ -29,8 +29,10 @@ export default {
   computed: {
     ...mapState(['gifs'])
   },
-  mounted() {
-    this.$store.dispatch('fetchGifs')
+  async mounted() {
+    this.$toast.show('Cargando gifs...')
+    await this.$store.dispatch('fetchGifs')
+    this.$toast.clear()
   }
 }
 </script>

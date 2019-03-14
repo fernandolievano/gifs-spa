@@ -20,6 +20,8 @@ body,
 html {
   height: 100%;
   background-image: url('/paper.png');
+  width: 100%;
+  min-width: 100%;
 }
 body {
   margin: 0;

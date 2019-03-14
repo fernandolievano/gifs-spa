@@ -21,7 +21,14 @@
       </div>
       <div class="navbar-item">
         <div class="control has-icons-left">
-          <input v-model="query" type="text" class="input" placeholder="Busca tus gifs favoritos" @focus="success = false">
+          <input
+            v-model="query"
+            type="text"
+            class="input"
+            placeholder="Busca tus gifs favoritos"
+            @focus="success = false"
+            @keyup.enter="search(query)"
+          >
           <span class="icon is-left is-small">
             <i class="fas fa-search" />
           </span>
@@ -72,10 +79,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  nav {
-    margin-bottom: 5em;
-  }
-  .brand {
-    font-size: 2em;
-  }
+nav {
+  margin-bottom: 5em;
+}
+.brand {
+  font-size: 2em;
+}
 </style>

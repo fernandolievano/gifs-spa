@@ -3,7 +3,7 @@ import env from '~/env.js'
 export const state = () => ({
   gifs: [],
   results: [],
-  limit: 15,
+  limit: 20,
   rating: 'g'
 })
 
