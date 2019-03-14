@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style media="screen">
+@import url('https://cdn.jsdelivr.net/npm/animate.css@3.5.1');
+
 body,
 html {
   height: 100%;
