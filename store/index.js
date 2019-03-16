@@ -2,6 +2,7 @@ import env from '~/env.js'
 
 export const state = () => ({
   gifs: [],
+  stickers: [],
   results: [],
   limit: 12,
   rating: 'g'
@@ -10,6 +11,9 @@ export const state = () => ({
 export const mutations = {
   SET_GIFS(state, gifs) {
     state.gifs = gifs
+  },
+  SET_STICKERS(state, stickers) {
+    state.stickers = stickers
   },
   SET_RESULTS(state, results) {
     state.results = results
@@ -27,6 +31,14 @@ export const actions = {
       }&rating=${state.rating}`
     )
     commit('SET_GIFS', response.data)
+  },
+  async fetchStickers({ commit, state }) {
+    const response = await this.$axios.$get(
+      `https://api.giphy.com/v1/stickers/trending?api_key=${
+        env.API_KEY
+      }&limit=${state.limit}&rating=${state.rating}`
+    )
+    commit('SET_STICKERS', response.data)
   },
   async searchGifs({ commit, state }, query) {
     const response = await this.$axios.$get(

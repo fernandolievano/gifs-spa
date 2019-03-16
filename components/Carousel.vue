@@ -1,7 +1,7 @@
 <template>
   <div class="columns is-mobile is-centered is-vcentered is-centered is-multiline">
     <div class="column is-3">
-      <button class="button carousel-button is-primary" :class="[hasntPrev ? 'is-inverted' : '']" :disabled="hasntPrev" @click="previous">
+      <button class="button carousel-button is-primary" :class="[hasntPrev ? 'is-outlined' : '']" :disabled="hasntPrev" @click="previous">
         <span class="icon">
           <i class="fas fa-chevron-circle-left" />
         </span>
@@ -17,7 +17,7 @@
       </transition>
     </div>
     <div class="column is-3">
-      <button class="button carousel-button is-primary" :class="[hasntNext ? 'is-inverted' : '']" :disabled="hasntNext" @click="next">
+      <button class="button carousel-button is-primary" :class="[hasntNext ? 'is-outlined' : '']" :disabled="hasntNext" @click="next">
         <span class="icon">
           <i class="fas fa-chevron-circle-right" />
         </span>

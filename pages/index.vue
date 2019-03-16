@@ -28,7 +28,7 @@
         <Carousel v-if="showTrendingGifs" :slides="gifs" />
       </div>
       <div class="column is-6-tablet">
-        <Carousel v-if="showTrendingStickers" :slides="gifs" />
+        <Carousel v-if="showTrendingStickers" :slides="stickers" />
       </div>
     </div>
   </section>
@@ -46,11 +46,12 @@ export default {
     }
   },
   computed: {
-    ...mapState(['gifs'])
+    ...mapState(['gifs', 'stickers'])
   },
   async mounted() {
-    this.$toast.show('Cargando gifs...')
+    this.$toast.show('Cargando contenido...')
     await this.$store.dispatch('fetchGifs')
+    await this.$store.dispatch('fetchStickers')
     this.$toast.clear()
   }
 }

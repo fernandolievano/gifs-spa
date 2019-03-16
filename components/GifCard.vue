@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="card shadow" :class="randomBackground">
     <img v-lazy="gif.images.fixed_height.url" :alt="gif.slug" class="gif" lazy="loading">
-    <p class="is-italic" :class="[darkText ? 'has-text-grey-dark' : 'has-text-white-ter']">
+    <small class="is-italic" :class="[darkText ? 'has-text-grey-dark' : 'has-text-white-ter']">
       {{ gif.title }}
-    </p>
+    </small>
     <footer class="card-footer">
       <div class="card-footer-item">
         <button class="button button-gradient" @click="copyLink(gif.bitly_url)">
