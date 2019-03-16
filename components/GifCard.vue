@@ -30,7 +30,6 @@ export default {
       backgrounds: [
         'has-background-black',
         'has-background-dark',
-        'has-background-primary',
         'has-background-info',
         'has-background-link',
         'has-background-success',

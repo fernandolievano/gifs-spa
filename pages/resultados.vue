@@ -5,16 +5,18 @@
         <h1 v-if="resultados.length > 0" class="encabezado">
           Resultados...
         </h1>
-        <h1 v-else class="encabezado has-text-danger">
-          No hay resultados para mostrar... <span><i class="fas fa-heart-broken" /></span>
-          <br>
-          <n-link to="/" class="button is-primary">
-            <span class="icon is-small">
-              <i class="fas fa-arrow-circle-left" />
-            </span>
-            <span>Volver a la página principal</span>
-          </n-link>
-        </h1>
+        <transition v-else appear appear-active-class="animated flash">
+          <h1 class="encabezado has-text-danger">
+            No hay resultados para mostrar... <span><i class="fas fa-heart-broken" /></span>
+            <br>
+            <n-link to="/" class="button is-primary">
+              <span class="icon is-small">
+                <i class="fas fa-arrow-circle-left" />
+              </span>
+              <span>Volver a la página principal</span>
+            </n-link>
+          </h1>
+        </transition>
       </div>
     </div>
     <div class="columns is-multiline is-vcentered">
