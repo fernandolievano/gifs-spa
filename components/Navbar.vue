@@ -14,11 +14,6 @@
       <div v-if="isSearching" class="navbar-item">
         <p>Buscando gifs...</p> <i class="far fa-smile-wink" />
       </div>
-      <div v-if="success && resultButton" class="navbar-item">
-        <n-link to="/resultados" class="button">
-          Ver resultados
-        </n-link>
-      </div>
       <div class="navbar-item">
         <div class="control has-icons-left">
           <input
@@ -51,17 +46,7 @@ export default {
   data() {
     return {
       query: '',
-      isSearching: false,
-      success: false
-    }
-  },
-  computed: {
-    resultButton() {
-      if (this.$route.path === '/resultados') {
-        return false
-      } else {
-        return true
-      }
+      isSearching: false
     }
   },
   methods: {
@@ -72,7 +57,7 @@ export default {
       this.isSearching = true
       await this.searchGifs(query)
       this.isSearching = false
-      this.success = true
+      this.$router.push({ name: 'resultados' })
     }
   }
 }

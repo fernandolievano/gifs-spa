@@ -30,11 +30,9 @@
 </template>
 
 <script>
-import GifCard from '~/components/GifCard.vue'
 import { mapState } from 'vuex'
 
 export default {
-  components: { GifCard },
   computed: {
     ...mapState({
       resultados: 'results'

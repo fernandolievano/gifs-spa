@@ -3,7 +3,7 @@ import env from '~/env.js'
 export const state = () => ({
   gifs: [],
   results: [],
-  limit: 20,
+  limit: 9,
   rating: 'g'
 })
 
@@ -36,4 +36,7 @@ export const actions = {
     )
     commit('SET_RESULTS', response.data)
   }
+}
+export const getters = {
+  // gifsOrderedBySize
 }

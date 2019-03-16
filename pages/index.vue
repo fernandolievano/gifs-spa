@@ -21,11 +21,9 @@
 
 <script>
 import { mapState } from 'vuex'
-import GifCard from '~/components/GifCard.vue'
 
 export default {
   name: 'Gifs',
-  components: { GifCard },
   computed: {
     ...mapState(['gifs'])
   },

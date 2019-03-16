@@ -1,9 +1,9 @@
 <template lang="html">
-  <div class="column is-6-tablet">
+  <div class="column is-4-tablet">
     <div class="card shadow" :class="randomBackground">
       <div class="card-content">
         <div class="content">
-          <img v-lazy="gif.images.original.url" :alt="gif.slug" class="gif" lazy="loading">
+          <img v-lazy="gif.images.downsized.url" :alt="gif.slug" class="gif" lazy="loading">
           <p class="is-italic" :class="[darkText ? 'has-text-grey-dark' : 'has-text-white-ter']">
             {{ gif.title }}
           </p>
@@ -75,7 +75,9 @@ export default {
   methods: {
     async copyLink(link) {
       await navigator.clipboard.writeText(link)
-      this.$toast.success('¡Copiado al portapapeles!')
+      this.$toast.success('¡Enlace copiado al portapapeles!', {
+        duration: 850
+      })
     }
   }
 }

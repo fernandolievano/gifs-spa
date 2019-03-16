@@ -40,7 +40,8 @@ module.exports = {
   */
   plugins: [
     { src: '~/plugins/aos', ssr: false },
-    { src: '~/plugins/vue-lazyload', ssr: false }
+    { src: '~/plugins/vue-lazyload', ssr: false },
+    { src: '~/plugins/global' }
   ],
 
   /*
@@ -62,7 +63,7 @@ module.exports = {
   },
 
   toast: {
-    position: 'top-center'
+    position: 'top-right'
   },
 
   /*
