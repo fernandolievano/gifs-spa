@@ -6,29 +6,49 @@
           Tendencias 
         </h1>
       </div>
-      <div class="column is-6">
-        <button class="button" @click="showTrendingGifs = true">
-          <span>Trending Gifs</span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true" />
-          </span>
-        </button>
-      </div>
-      <div class="column is-6">
-        <button class="button" @click="showTrendingStickers = true">
-          <span>Trending Stickers</span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true" />
-          </span>
-        </button>
-      </div>
     </div>
-    <div class="columns is-multiline is-centered is-vcentered">
+    <div class="columns is-multiline is-centered">
       <div class="column is-6-tablet">
-        <Carousel v-if="showTrendingGifs" :slides="gifs" />
+        <div class="columns is-multiline">
+          <div class="column is-full">
+            <button class="button is-link" :class="[showTrendingGifs ? '' : 'is-outlined']" @click="showTrendingGifs= !showTrendingGifs">
+              <span>Trending Gifs</span>
+              <span class="icon is-small">
+                <i :class="[showTrendingGifs ? 'fas fa-angle-up' :'fas fa-angle-down']" aria-hidden="true" />
+              </span>
+            </button>
+          </div>
+          <div class="column is-full">
+            <transition
+              enter-active-class="animated fadeInUp"
+              leave-active-class="animated fadeOutDown"
+              mode="out-in"
+            >
+              <Carousel v-if="showTrendingGifs" :slides="gifs" />
+            </transition>
+          </div>
+        </div>
       </div>
       <div class="column is-6-tablet">
-        <Carousel v-if="showTrendingStickers" :slides="stickers" />
+        <div class="columns is-multiline">
+          <div class="column is-full">
+            <button class="button is-link is-outlined" :class="[showTrendingGifs ? '' : 'is-outlined']" @click="showTrendingStickers = !showTrendingStickers">
+              <span>Trending Stickers</span>
+              <span class="icon is-small">
+                <i :class="[showTrendingStickers ? 'fas fa-angle-up' :'fas fa-angle-down']" aria-hidden="true" />
+              </span>
+            </button>
+          </div>
+          <div class="column is-full">
+            <transition
+              enter-active-class="animated fadeInUp"
+              leave-active-class="animated fadeOutDown"
+              mode="out-in"
+            >
+              <Carousel v-if="showTrendingStickers" :slides="stickers" />
+            </transition>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -1,9 +1,13 @@
 <template lang="html">
-  <div class="card shadow" :class="randomBackground">
-    <img v-lazy="gif.images.fixed_height.url" :alt="gif.slug" class="gif" lazy="loading">
-    <small class="is-italic" :class="[darkText ? 'has-text-grey-dark' : 'has-text-white-ter']">
-      {{ gif.title }}
-    </small>
+  <div class="card shadow has-text-centered" :class="randomBackground">
+    <div class="card-image">
+      <img v-lazy="gif.images.original.url" :alt="gif.slug" class="gif" lazy="loading">
+    </div>
+    <div class="card-content">
+      <small class="is-italic" :class="[darkText ? 'has-text-grey-dark' : 'has-text-white-ter']">
+        {{ gif.title }}
+      </small>
+    </div>
     <footer class="card-footer">
       <div class="card-footer-item">
         <button class="button button-gradient" @click="copyLink(gif.bitly_url)">
@@ -74,7 +78,8 @@ export default {
   padding: 0.5em;
 }
 .gif {
-  width: 100%;
+  width: auto;
+  height: 10em;
   opacity: .85;
   transition: linear .5s;
 }
@@ -107,6 +112,9 @@ img[lazy="loading"] {
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+.card-content {
+  height: 8em;
 }
 .card-footer {
   background: none !important;
