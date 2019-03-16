@@ -1,20 +1,35 @@
 <template>
   <section class="container">
-    <div class="columns is-vcentered">
+    <div class="columns is-centered is-vcentered is-multiline">
       <div class="column is-full">
         <h1 class="encabezado">
-          Tendencias
+          Tendencias 
         </h1>
       </div>
+      <div class="column is-6">
+        <button class="button" @click="showTrendingGifs = true">
+          <span>Trending Gifs</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true" />
+          </span>
+        </button>
+      </div>
+      <div class="column is-6">
+        <button class="button" @click="showTrendingStickers = true">
+          <span>Trending Stickers</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true" />
+          </span>
+        </button>
+      </div>
     </div>
-    <div class="columns is-multiline is-vcentered">
-      <GifCard
-        v-for="gif in gifs"
-        :key="gif.id"
-        data-aos="fade-up"
-        data-aos-duration="3000"
-        :gif="gif"
-      />
+    <div class="columns is-multiline is-centered is-vcentered">
+      <div class="column is-6-tablet">
+        <Carousel v-if="showTrendingGifs" :slides="gifs" />
+      </div>
+      <div class="column is-6-tablet">
+        <Carousel v-if="showTrendingStickers" :slides="gifs" />
+      </div>
     </div>
   </section>
 </template>
@@ -24,6 +39,12 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'Gifs',
+  data() {
+    return {
+      showTrendingGifs: false,
+      showTrendingStickers: false
+    }
+  },
   computed: {
     ...mapState(['gifs'])
   },

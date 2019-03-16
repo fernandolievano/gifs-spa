@@ -18,13 +18,17 @@
       </div>
     </div>
     <div class="columns is-multiline is-vcentered">
-      <GifCard
+      <div
         v-for="gif in resultados"
         :key="gif.id"
-        data-aos="fade-up"
-        data-aos-duration="3000"
-        :gif="gif"
-      />
+        class="column is-3-desktop is-4-tablet"
+      >
+        <GifCard
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          :gif="gif"
+        />
+      </div>
     </div>
   </section>
 </template>

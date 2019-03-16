@@ -20,7 +20,6 @@ export default {}
 </script>
 
 <style lang="css" scoped>
-
 .nuxt-icon {
   width: 1%;
   margin: auto;

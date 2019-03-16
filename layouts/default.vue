@@ -24,14 +24,11 @@ html {
   background-image: url('/paper.png');
   width: 100%;
   min-width: 100%;
-}
-body {
-  margin: 0;
-  padding-bottom: 6rem;
-  min-height: 100%;
+  position: relative;
 }
 footer {
   margin-top: 5em;
+  margin-bottom: 0;
   background-image: url('/dark-triangles.png');
   background-repeat: repeat;
   right: 0;
@@ -39,6 +36,6 @@ footer {
   left: 0;
 }
 .encabezado {
-  font-size: 5em;
+  font-size: 4em;
 }
 </style>

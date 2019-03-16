@@ -57,6 +57,7 @@ export default {
       this.isSearching = true
       await this.searchGifs(query)
       this.isSearching = false
+      this.query = ''
       this.$router.push({ name: 'resultados' })
     }
   }
