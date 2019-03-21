@@ -19,11 +19,11 @@
         </transition>
       </div>
     </div>
-    <div class="columns is-multiline is-vcentered">
+    <div v-if="resultados" class="columns is-multiline is-vcentered">
       <div
         v-for="gif in resultados"
         :key="gif.id"
-        class="column is-3-desktop is-4-tablet is-8-mobile is-offset-2-mobile"
+        class="column is-4-tablet is-8-mobile is-offset-2-mobile"
       >
         <GifCard
           data-aos="fade-up"
@@ -32,16 +32,29 @@
         />
       </div>
     </div>
+    <div class="columns">
+      <button class="buttton" @click="siguiente">
+        Next
+      </button>
+    </div>
   </section>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
+  data() {
+    return { page: 0 }
+  },
   computed: {
     ...mapState({
       resultados: 'results'
+    })
+  },
+  methods: {
+    ...mapActions({
+      siguiente: 'resultsNextPage'
     })
   }
 }

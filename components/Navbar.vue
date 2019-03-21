@@ -22,7 +22,8 @@
             class="input"
             placeholder="Busca tus gifs favoritos"
             @focus="success = false"
-            @keyup.enter="search(query)"
+            @keyup.enter="search()"
+            @input="setQuery(query)"
           >
           <span class="icon is-left is-small">
             <i class="fas fa-search" />
@@ -30,7 +31,7 @@
         </div>
       </div>
       <div class="navbar-item">
-        <button class="button is-primary is-outlined" @click="search(query)">
+        <button class="button is-primary is-outlined" @click="search()">
           Buscar
         </button>
       </div>
@@ -51,13 +52,13 @@ export default {
   },
   methods: {
     ...mapActions({
-      searchGifs: 'searchGifs'
+      searchGifs: 'searchGifs',
+      setQuery: 'setQuery'
     }),
-    async search(query) {
+    async search() {
       this.isSearching = true
-      await this.searchGifs(query)
+      await this.searchGifs()
       this.isSearching = false
-      this.query = ''
       this.$router.push({ name: 'resultados' })
     }
   }

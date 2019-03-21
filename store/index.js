@@ -5,7 +5,10 @@ export const state = () => ({
   stickers: [],
   results: [],
   limit: 12,
-  rating: 'g'
+  limitResults: 6,
+  rating: 'g',
+  query: '',
+  offset: 0
 })
 
 export const mutations = {
@@ -20,6 +23,12 @@ export const mutations = {
   },
   CLEAN_RESULTS(state) {
     state.results = []
+  },
+  SET_QUERY(state, query) {
+    state.query = query
+  },
+  NEXT_PAGE(state) {
+    state.offset += state.limitResults
   }
 }
 
@@ -40,15 +49,22 @@ export const actions = {
     )
     commit('SET_STICKERS', response.data)
   },
-  async searchGifs({ commit, state }, query) {
+  async searchGifs({ commit, state }) {
     const response = await this.$axios.$get(
       `https://api.giphy.com/v1/gifs/search?api_key=${env.API_KEY}&limit=${
-        state.limit
-      }&rating=${state.rating}&q=${query}`
+        state.limitResults
+      }&rating=${state.rating}&q=${state.query}&offset=${state.offset}`
     )
     commit('SET_RESULTS', response.data)
+  },
+  async resultsNextPage({ dispatch, commit }) {
+    await commit('NEXT_PAGE')
+    dispatch('searchGifs')
+  },
+  setQuery({ commit }, query) {
+    commit('SET_QUERY', query)
   }
 }
 export const getters = {
-  // gifsOrderedBySize
+  //
 }
