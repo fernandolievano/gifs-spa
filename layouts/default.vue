@@ -25,6 +25,8 @@ html {
   width: 100%;
   min-width: 100%;
   position: relative;
+  scrollbar-color: blueviolet turquoise;
+  scrollbar-width: thin;
 }
 footer {
   margin-top: 5em;
@@ -37,5 +39,12 @@ footer {
 }
 .encabezado {
   font-size: 4em;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: turquoise;
+}
+::-webkit-scrollbar-thumb {
+  background-color: blueviolet;
 }
 </style>
