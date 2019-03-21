@@ -8,11 +8,11 @@
       </div>
     </div>
     <div class="columns is-multiline is-centered">
-      <div class="column is-6-tablet">
+      <div class="column is-6-tablet is-10-mobile is-offset-1-mobile">
         <div class="columns is-multiline">
           <div class="column is-full">
             <button class="button is-link" :class="[showTrendingGifs ? '' : 'is-outlined']" @click="showTrendingGifs= !showTrendingGifs">
-              <span>Trending Gifs</span>
+              <span>Gifs Populares</span>
               <span class="icon is-small">
                 <i :class="[showTrendingGifs ? 'fas fa-angle-up' :'fas fa-angle-down']" aria-hidden="true" />
               </span>
@@ -29,11 +29,11 @@
           </div>
         </div>
       </div>
-      <div class="column is-6-tablet">
+      <div class="column is-6-tablet is-10-mobile is-offset-1-mobile">
         <div class="columns is-multiline">
           <div class="column is-full">
             <button class="button is-link is-outlined" :class="[showTrendingGifs ? '' : 'is-outlined']" @click="showTrendingStickers = !showTrendingStickers">
-              <span>Trending Stickers</span>
+              <span>Stickers populares</span>
               <span class="icon is-small">
                 <i :class="[showTrendingStickers ? 'fas fa-angle-up' :'fas fa-angle-down']" aria-hidden="true" />
               </span>

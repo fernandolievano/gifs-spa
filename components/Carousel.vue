@@ -1,13 +1,13 @@
 <template>
-  <div class="columns is-mobile is-centered is-vcentered is-centered is-multiline">
-    <div class="column is-3">
+  <div class="columns is-mobile has-text-centered is-vcentered is-centered is-multiline">
+    <div class="column  is-2">
       <button class="button carousel-button is-primary" :class="[hasntPrev ? 'is-outlined' : '']" :disabled="hasntPrev" @click="previous">
         <span class="icon">
           <i class="fas fa-chevron-circle-left" />
         </span>
       </button>
     </div>
-    <div class="column is-6">
+    <div class="column  is-8">
       <transition
         enter-active-class="animated flipInY"
         leave-active-class="animated flipOutY"
@@ -16,7 +16,7 @@
         <GifCard :key="currentSlide.id" :gif="currentSlide" />
       </transition>
     </div>
-    <div class="column is-3">
+    <div class="column  is-2">
       <button class="button carousel-button is-primary" :class="[hasntNext ? 'is-outlined' : '']" :disabled="hasntNext" @click="next">
         <span class="icon">
           <i class="fas fa-chevron-circle-right" />
@@ -67,7 +67,8 @@ export default {
 <style scoped>
 .carousel-button {
   border: none;
-  margin: 2em;
   border-radius: 100%;
+  font-size: 1.5em;
+  text-align: center;
 }
 </style>

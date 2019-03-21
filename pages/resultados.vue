@@ -23,7 +23,7 @@
       <div
         v-for="gif in resultados"
         :key="gif.id"
-        class="column is-3-desktop is-4-tablet"
+        class="column is-3-desktop is-4-tablet is-8-mobile is-offset-2-mobile"
       >
         <GifCard
           data-aos="fade-up"
