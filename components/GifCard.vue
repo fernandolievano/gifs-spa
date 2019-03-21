@@ -86,7 +86,7 @@ export default {
 .gif {
   width: auto;
   height: 10em;
-  opacity: .85;
+  opacity: .75;
   transition: linear .5s;
 }
 .gif:hover {

@@ -8,7 +8,8 @@ export const state = () => ({
   limitResults: 6,
   rating: 'g',
   query: '',
-  offset: 0
+  offset: 0,
+  pagination: null
 })
 
 export const mutations = {
@@ -29,6 +30,12 @@ export const mutations = {
   },
   NEXT_PAGE(state) {
     state.offset += state.limitResults
+  },
+  RESET_OFFSET(state) {
+    state.offset = 0
+  },
+  SET_PAGINATION(state, pagination) {
+    state.pagination = pagination
   }
 }
 
@@ -56,10 +63,15 @@ export const actions = {
       }&rating=${state.rating}&q=${state.query}&offset=${state.offset}`
     )
     commit('SET_RESULTS', response.data)
+    commit('SET_PAGINATION', response.pagination)
   },
   async resultsNextPage({ dispatch, commit }) {
     await commit('NEXT_PAGE')
     dispatch('searchGifs')
+  },
+  async resultsPreviousPage() {},
+  resetOffset({ commit }) {
+    commit('RESET_OFFSET')
   },
   setQuery({ commit }, query) {
     commit('SET_QUERY', query)
