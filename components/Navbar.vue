@@ -4,11 +4,29 @@
       <n-link to="/" class="navbar-item brand">
         Gif app
       </n-link>
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+      <a
+        role="button"
+        class="navbar-burger burger"
+        :class="[showMenu ? 'is-active' : '']"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbar"
+        @click="expand"
+      >
         <span aria-hidden="true" />
         <span aria-hidden="true" />
         <span aria-hidden="true" />
       </a>
+    </div>
+    <div class="navbar-menu" :class="[showMenu ? 'is-active' : '']">
+      <div class="navbar-start">
+        <n-link to="/tendencias/gifs" class="navbar-item">
+          Gifs Populares
+        </n-link>
+        <n-link to="/tendencias/stickers" class="navbar-item">
+          Stickers populares
+        </n-link>
+      </div>
     </div>
     <div class="navbar-end">
       <div v-if="isSearching" class="navbar-item">
@@ -47,7 +65,8 @@ export default {
   data() {
     return {
       query: '',
-      isSearching: false
+      isSearching: false,
+      showMenu: false
     }
   },
   methods: {
@@ -58,6 +77,15 @@ export default {
       await this.searchGifs()
       this.isSearching = false
       this.$router.push({ name: 'resultados' })
+    },
+    expand() {
+      const isActive = this.showMenu
+
+      if (isActive) {
+        this.showMenu = false
+      } else {
+        this.showMenu = true
+      }
     }
   }
 }
@@ -69,5 +97,15 @@ nav {
 }
 .brand {
   font-size: 2em;
+}
+.navbar-menu {
+  background-color: transparent;
+}
+.navbar-item {
+  transition: ease .5s;
+}
+.navbar-item:hover {
+  background-color: transparent;
+  color: turquoise;
 }
 </style>

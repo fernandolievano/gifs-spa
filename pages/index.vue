@@ -70,8 +70,8 @@ export default {
   },
   async mounted() {
     this.$toast.show('Cargando contenido...')
-    await this.$store.dispatch('fetchGifs')
-    await this.$store.dispatch('fetchStickers')
+    await this.$store.dispatch('fetchGifs', 12)
+    await this.$store.dispatch('fetchStickers', 12)
     this.$toast.clear()
   }
 }

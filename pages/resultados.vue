@@ -93,5 +93,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.columns {
+  overflow-x: auto;
+}
 </style>

@@ -40,19 +40,19 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchGifs({ commit, state }) {
+  async fetchGifs({ commit, state }, limit) {
     const response = await this.$axios.$get(
-      `https://api.giphy.com/v1/gifs/trending?api_key=${env.API_KEY}&limit=${
-        state.limit
-      }&rating=${state.rating}`
+      `https://api.giphy.com/v1/gifs/trending?api_key=${
+        env.API_KEY
+      }&limit=${limit}&rating=${state.rating}`
     )
     commit('SET_GIFS', response.data)
   },
-  async fetchStickers({ commit, state }) {
+  async fetchStickers({ commit, state }, limit) {
     const response = await this.$axios.$get(
       `https://api.giphy.com/v1/stickers/trending?api_key=${
         env.API_KEY
-      }&limit=${state.limit}&rating=${state.rating}`
+      }&limit=${limit}&rating=${state.rating}`
     )
     commit('SET_STICKERS', response.data)
   },

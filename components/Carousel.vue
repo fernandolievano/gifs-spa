@@ -68,7 +68,9 @@ export default {
 .carousel-button {
   border: none;
   border-radius: 100%;
-  font-size: 1.5em;
   text-align: center;
+}
+.carousel-button:hover {
+  font-size: 1.2em;
 }
 </style>
