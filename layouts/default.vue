@@ -28,14 +28,11 @@ html {
   scrollbar-color: blueviolet turquoise;
   scrollbar-width: thin;
 }
-footer {
-  margin-top: 5em;
+.footer {
+  margin-top: 20em;
   margin-bottom: 0;
   background-image: url('/dark-triangles.png');
   background-repeat: repeat;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 .encabezado {
   font-size: 4em;
