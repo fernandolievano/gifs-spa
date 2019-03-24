@@ -7,7 +7,7 @@
             Resultados...
           </h1>
           <h5 class="is-size-5">
-            ¡{{ dataPagina.total_count }} resultados por ver!
+            ¡{{ pagination.total_count | numero }} resultados por ver!
           </h5>
         </div>
         
@@ -37,29 +37,13 @@
           :gif="gif"
         />
       </div>
-      <div class="column is-8 is-offset-2 has-text-centered">
-        <small>{{ dataPagina.offset + dataPagina.count }} de {{ dataPagina.total_count }} vistos <i class="fas fa-check-double" /></small>
-      </div>
-      <div class="column is-full is-clearfix">
-        <a href="#busqueda" :disabled="prevDisabled" class="button is-link is-pulled-left">
-          <span class="icon is-small">
-            <i class="fas fa-caret-left" />
-          </span>
-          Anterior
-        </a>
-        <a href="#busqueda" :disabled="nextDisabled" class="button is-link is-pulled-right" @click="siguiente">
-          Siguiente
-          <span class="icon is-small">
-            <i class="fas fa-caret-right" />
-          </span>
-        </a>
-      </div>
+      <Pagination v-if="pagination" page="resultados" :pagination-data="pagination" />
     </div>
   </section>
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -68,33 +52,8 @@ export default {
   computed: {
     ...mapState({
       resultados: 'results',
-      dataPagina: 'pagination'
-    }),
-    nextDisabled() {
-      if (this.resultados.length > 1) {
-        return this.dataPagina.offset === this.dataPagina.total_count - 1
-      } else {
-        return true
-      }
-    },
-    prevDisabled() {
-      if (this.resultados.length > 1) {
-        return this.dataPagina.offset === 0
-      } else {
-        return true
-      }
-    }
-  },
-  methods: {
-    ...mapActions({
-      siguiente: 'resultsNextPage'
+      pagination: 'pagination'
     })
   }
 }
 </script>
-
-<style scoped>
-.columns {
-  overflow-x: auto;
-}
-</style>

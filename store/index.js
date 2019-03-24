@@ -4,8 +4,8 @@ export const state = () => ({
   gifs: [],
   stickers: [],
   results: [],
-  limit: 12,
-  limitResults: 6,
+  limit: 15,
+  limitResults: 15,
   rating: 'g',
   query: '',
   offset: 0,
@@ -29,7 +29,10 @@ export const mutations = {
     state.query = query
   },
   NEXT_PAGE(state) {
-    state.offset += state.limitResults
+    state.offset += state.limit
+  },
+  PREVIOUS_PAGE(state) {
+    state.offset -= state.limit
   },
   RESET_OFFSET(state) {
     state.offset = 0
@@ -40,36 +43,49 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchGifs({ commit, state }, limit) {
+  async fetchGifs({ commit, state }) {
     const response = await this.$axios.$get(
-      `https://api.giphy.com/v1/gifs/trending?api_key=${
-        env.API_KEY
-      }&limit=${limit}&rating=${state.rating}`
+      `https://api.giphy.com/v1/gifs/trending?api_key=${env.API_KEY}&limit=${
+        state.limit
+      }&rating=${state.rating}&offset=${state.offset}`
     )
     commit('SET_GIFS', response.data)
+    commit('SET_PAGINATION', response.pagination)
   },
-  async fetchStickers({ commit, state }, limit) {
+  async fetchStickers({ commit, state }) {
     const response = await this.$axios.$get(
       `https://api.giphy.com/v1/stickers/trending?api_key=${
         env.API_KEY
-      }&limit=${limit}&rating=${state.rating}`
+      }&limit=${state.limit}&rating=${state.rating}&offset=${state.offset}`
     )
     commit('SET_STICKERS', response.data)
+    commit('SET_PAGINATION', response.pagination)
   },
   async searchGifs({ commit, state }) {
     const response = await this.$axios.$get(
       `https://api.giphy.com/v1/gifs/search?api_key=${env.API_KEY}&limit=${
-        state.limitResults
+        state.limit
       }&rating=${state.rating}&q=${state.query}&offset=${state.offset}`
     )
     commit('SET_RESULTS', response.data)
     commit('SET_PAGINATION', response.pagination)
   },
-  async resultsNextPage({ dispatch, commit }) {
+  async resultsNextPage({ commit, dispatch }) {
     await commit('NEXT_PAGE')
     dispatch('searchGifs')
   },
-  async resultsPreviousPage() {},
+  async resultsPreviousPage({ commit, dispatch }) {
+    await commit('PREVIOUS_PAGE')
+    dispatch('searchGifs')
+  },
+  async gifsNextPage({ commit, dispatch }) {
+    await commit('NEXT_PAGE')
+    dispatch('fetchGifs')
+  },
+  async gifsPreviousPage({ commit, dispatch }) {
+    await commit('PREVIOUS_PAGE')
+    dispatch('fetchGifs')
+  },
   resetOffset({ commit }) {
     commit('RESET_OFFSET')
   },

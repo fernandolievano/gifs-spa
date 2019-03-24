@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-undef */
 <template>
   <section class="section">
     <div class="container">
@@ -8,22 +10,21 @@
           </h1>
         </div>
       </div>
-      <div class="columns">
-        <div class="horizontal-scrolling">
-          <div
-            v-for="gif in gifs" 
-            :key="gif.id"
-            class="column is-4-desktop is-8-tablet is-10-mobile"
-          >
-<GifCard
-              data-aos="fade-up"
-              data-aos-duration="2000"
-              :gif="gif"
-            />
-          </div>
+      <div class="columns is-multiline">
+        <div
+          v-for="gif in gifs" 
+          :key="gif.id"
+          class="column is-4-tablet is-8-mobile is-offset-2-mobile"
+        >
+          <GifCard
+            :gif="gif"
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+          />
         </div>
       </div>
     </div>
+    <Pagination v-if="pagination" page="gifs" :pagination-data="pagination" />
   </section>
 </template>
 
@@ -32,11 +33,11 @@ import { mapActions, mapState } from 'vuex'
 
 export default {
   computed: {
-    ...mapState(['gifs'])
+    ...mapState(['gifs', 'pagination'])
   },
   async mounted() {
     this.$toast.show('Cargando contenido...')
-    await this.fetch(18)
+    await this.fetch(15)
     this.$toast.clear()
   },
   methods: {
@@ -46,11 +47,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.horizontal-scrolling {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-}
-</style>

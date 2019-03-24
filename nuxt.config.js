@@ -22,6 +22,17 @@ module.exports = {
           'sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr',
         crossorigin: 'anonymous'
       }
+    ],
+    script: [
+      {
+        src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js',
+        type: 'text/javascript'
+      },
+      {
+        type: 'text/javascript',
+        src:
+          'https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js'
+      }
     ]
   },
 
@@ -41,7 +52,8 @@ module.exports = {
   plugins: [
     { src: '~/plugins/aos', ssr: false },
     { src: '~/plugins/vue-lazyload', ssr: false },
-    { src: '~/plugins/global' }
+    { src: '~/plugins/global' },
+    { src: '~/plugins/filters' }
   ],
 
   /*

@@ -1,5 +1,5 @@
 <template>
-  <div class="modal is-clipped" :class="[isActive ? 'is-active' : '']">
+  <div class="modal" :class="[isActive ? 'is-active' : '']">
     <div class="modal-background" />
     <div class="modal-content">
       <slot />

@@ -32,7 +32,7 @@
       <div class="column is-6-tablet is-10-mobile is-offset-1-mobile">
         <div class="columns is-multiline">
           <div class="column is-full">
-            <button class="button is-link is-outlined" :class="[showTrendingGifs ? '' : 'is-outlined']" @click="showTrendingStickers = !showTrendingStickers">
+            <button class="button is-link" :class="[showTrendingStickers ? '' : 'is-outlined']" @click="showTrendingStickers = !showTrendingStickers">
               <span>Stickers populares</span>
               <span class="icon is-small">
                 <i :class="[showTrendingStickers ? 'fas fa-angle-up' :'fas fa-angle-down']" aria-hidden="true" />

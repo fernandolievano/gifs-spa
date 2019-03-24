@@ -1,0 +1,111 @@
+<template>
+  <nav class="navbar is-black is-fixed-bottom">
+    <div class="navbar-menu has-text-centered is-active">
+      <div class="navbar-start ">
+        <a v-if="!prevDisabled" href="#" class="navbar-item " @click="prev(page)">
+          <span class="icon is-medium has-text-link">
+            <i class="fas fa-caret-left" />
+          </span> 
+          Anterior
+        </a>
+      </div>
+      <small class="navbar-item">
+        {{ paginationData.offset + paginationData.count | numero }} de {{ paginationData.total_count | numero }}
+      </small>
+      <div class="navbar-end">
+        <a v-if="!nextDisabled" href="#" class=" navbar-item" @click="next(page)">
+          Siguiente 
+          <span class="icon is-medium has-text-link">
+            <i class="fas fa-caret-right" />
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<script>
+import { mapActions } from 'vuex'
+export default {
+  head: {
+    bodyAttrs: {
+      class: 'has-navbar-fixed-bottom'
+    }
+  },
+  props: {
+    page: {
+      type: String,
+      required: true
+    },
+    paginationData: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    prevDisabled() {
+      return this.paginationData.offset === 0
+    },
+    nextDisabled() {
+      return this.paginationData.offset === this.paginationData.total_count - 1
+    }
+  },
+  methods: {
+    ...mapActions({
+      siguienteGifs: 'gifsNextPage',
+      anteriorGifs: 'gifsPreviousPage',
+      siguienteResultados: 'resultsNextPage',
+      anteriorResultados: 'resultsPreviousPage'
+    }),
+    async next(page) {
+      switch (page) {
+        case 'gifs':
+          this.$toast.show('Cargando contenido...')
+          await this.siguienteGifs()
+          this.$toast.clear()
+          break
+
+        case 'resultados':
+          this.$toast.show('Cargando contenido...')
+          await this.siguienteResultados()
+          this.$toast.clear()
+          break
+
+        default:
+          break
+      }
+    },
+    async prev(page) {
+      switch (page) {
+        case 'gifs':
+          this.$toast.show('Cargando contenido...')
+          await this.anteriorGifs()
+          this.$toast.clear()
+          break
+
+        case 'resultados':
+          this.$toast.show('Cargando contenido...')
+          await this.anteriorResultados()
+          this.$toast.clear()
+          break
+
+        default:
+          break
+      }
+    }
+  }
+}
+</script>
+
+<style lang="css" scoped>
+.navbar-menu {
+  background-color: transparent;
+}
+.navbar-item {
+  transition: ease 0.5s;
+}
+.navbar-item:hover {
+  background-color: transparent;
+  color: turquoise;
+}
+</style>

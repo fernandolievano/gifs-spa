@@ -1,12 +1,7 @@
 <template lang="html">
   <div class="card shadow has-text-centered" :class="randomBackground">
     <div class="card-image">
-      <a @click="showModal = true">
-        <img v-lazy="gif.images.downsized.url" :alt="gif.slug" class="gif" lazy="loading">
-      </a>
-      <modal :is-active="showModal" @close="showModal = false">
-        <img v-lazy="gif.images.original.url" :alt="gif.slug" lazy="loading">
-      </modal>
+      <img v-lazy="gif.images.downsized.url" :alt="gif.slug" class="gif" lazy="loading">
     </div>
     <div class="card-content">
       <small class="is-italic" :class="[darkText ? 'has-text-grey-dark' : 'has-text-white-ter']">
@@ -48,8 +43,7 @@ export default {
         'has-background-lime',
         'has-background-indigo',
         'has-background-red'
-      ],
-      showModal: false
+      ]
     }
   },
   computed: {
