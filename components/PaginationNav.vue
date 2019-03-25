@@ -54,6 +54,8 @@ export default {
     ...mapActions({
       siguienteGifs: 'gifsNextPage',
       anteriorGifs: 'gifsPreviousPage',
+      siguienteStickers: 'stickersNextPage',
+      anteriorStickers: 'stickersPreviousPage',
       siguienteResultados: 'resultsNextPage',
       anteriorResultados: 'resultsPreviousPage'
     }),
@@ -62,6 +64,12 @@ export default {
         case 'gifs':
           this.$toast.show('Cargando contenido...')
           await this.siguienteGifs()
+          this.$toast.clear()
+          break
+
+        case 'stickers':
+          this.$toast.show('Cargando contenido...')
+          await this.siguienteStickers()
           this.$toast.clear()
           break
 
@@ -80,6 +88,12 @@ export default {
         case 'gifs':
           this.$toast.show('Cargando contenido...')
           await this.anteriorGifs()
+          this.$toast.clear()
+          break
+
+        case 'stickers':
+          this.$toast.show('Cargando contenido...')
+          await this.anteriorStickers()
           this.$toast.clear()
           break
 

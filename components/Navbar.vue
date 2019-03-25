@@ -2,7 +2,7 @@
   <nav class="navbar is-black" role="navigation" aria-label="Navbar">
     <div class="navbar-brand">
       <n-link to="/" class="navbar-item brand">
-        Gif app
+        <img src="/geef.svg" class="logo" alt="logo">
       </n-link>
       <a
         role="button"

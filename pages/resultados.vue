@@ -49,6 +49,11 @@ export default {
   data() {
     return { page: 0 }
   },
+  head() {
+    return {
+      title: 'Resultados de búsqueda - Geefs'
+    }
+  },
   computed: {
     ...mapState({
       resultados: 'results',

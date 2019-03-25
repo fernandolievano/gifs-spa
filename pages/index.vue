@@ -1,6 +1,17 @@
 <template>
   <section class="container">
-    <div class="columns is-centered is-vcentered is-multiline">
+    <div class="columns is-centered is-vcentered is-multiline has-text-centered">
+      <div class="column is-4-mobile is-offset-4-mobile is-4-tablet">
+        <figure class="image">
+          <img src="/geef.svg" alt="logo">
+        </figure>
+      </div>
+      <div class="column is-full-mobile is-8-tablet">
+        <h1 class="title">
+          Geefs
+        </h1>
+        <p><b>Geefs</b> es tu lugar ideal para ver y buscar los mejores gifs y stickers de <a href="https://giphy.com/">Giphy</a> para compartirlos con tus amigos en tus redes sociales <i class="far fa-smile-wink" /></p>
+      </div>
       <div class="column is-full">
         <h1 class="encabezado">
           Tendencias 
@@ -63,6 +74,11 @@ export default {
     return {
       showTrendingGifs: false,
       showTrendingStickers: false
+    }
+  },
+  head() {
+    return {
+      title: 'Los mejores gifs y stickers para vos - Geefs'
     }
   },
   computed: {

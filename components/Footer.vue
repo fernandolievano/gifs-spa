@@ -7,8 +7,8 @@
         </a>
       </p>
       <p class="is-size-8">
-        and handcrafted with
-        <img src="/heart.png" class="heart-icon" alt="love">
+        and <span class="icon has-text-primary"><i class="fas fa-code" /></span> with
+        <span class="icon has-text-danger"><i class="fas fa-heart" /></span>
         by <a class="has-text-grey" href="https://github.com/fernandolievano" target="_blank">Fernando Liévano</a>
       </p>
     </div>
@@ -23,9 +23,9 @@ export default {}
 .nuxt-icon {
   width: 1%;
   margin: auto;
-  bottom:0;
+  bottom: 0;
 }
 .is-size-8 {
-  font-size: 0.65em
+  font-size: 0.65em;
 }
 </style>

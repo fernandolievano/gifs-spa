@@ -86,6 +86,14 @@ export const actions = {
     await commit('PREVIOUS_PAGE')
     dispatch('fetchGifs')
   },
+  async stickersNextPage({ commit, dispatch }) {
+    await commit('NEXT_PAGE')
+    dispatch('fetchStickers')
+  },
+  async stickersPreviousPage({ commit, dispatch }) {
+    await commit('PREVIOUS_PAGE')
+    dispatch('fetchStickers')
+  },
   resetOffset({ commit }) {
     commit('RESET_OFFSET')
   },
