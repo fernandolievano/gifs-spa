@@ -1,5 +1,3 @@
-import env from '~/env.js'
-
 export const state = () => ({
   gifs: [],
   stickers: [],
@@ -45,9 +43,9 @@ export const mutations = {
 export const actions = {
   async fetchGifs({ commit, state }) {
     const response = await this.$axios.$get(
-      `https://api.giphy.com/v1/gifs/trending?api_key=${env.API_KEY}&limit=${
-        state.limit
-      }&rating=${state.rating}&offset=${state.offset}`
+      `https://api.giphy.com/v1/gifs/trending?api_key=${
+        process.env.API_KEY
+      }&limit=${state.limit}&rating=${state.rating}&offset=${state.offset}`
     )
     commit('SET_GIFS', response.data)
     commit('SET_PAGINATION', response.pagination)
@@ -55,7 +53,7 @@ export const actions = {
   async fetchStickers({ commit, state }) {
     const response = await this.$axios.$get(
       `https://api.giphy.com/v1/stickers/trending?api_key=${
-        env.API_KEY
+        process.env.API_KEY
       }&limit=${state.limit}&rating=${state.rating}&offset=${state.offset}`
     )
     commit('SET_STICKERS', response.data)
@@ -63,9 +61,11 @@ export const actions = {
   },
   async searchGifs({ commit, state }) {
     const response = await this.$axios.$get(
-      `https://api.giphy.com/v1/gifs/search?api_key=${env.API_KEY}&limit=${
-        state.limit
-      }&rating=${state.rating}&q=${state.query}&offset=${state.offset}`
+      `https://api.giphy.com/v1/gifs/search?api_key=${
+        process.env.API_KEY
+      }&limit=${state.limit}&rating=${state.rating}&q=${state.query}&offset=${
+        state.offset
+      }`
     )
     commit('SET_RESULTS', response.data)
     commit('SET_PAGINATION', response.pagination)

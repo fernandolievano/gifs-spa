@@ -22,17 +22,6 @@ module.exports = {
           'sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr',
         crossorigin: 'anonymous'
       }
-    ],
-    script: [
-      {
-        src: 'https://code.jquery.com/jquery-3.3.1.slim.min.js',
-        type: 'text/javascript'
-      },
-      {
-        type: 'text/javascript',
-        src:
-          'https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js'
-      }
     ]
   },
 
@@ -65,7 +54,8 @@ module.exports = {
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
     '@nuxtjs/pwa',
-    '@nuxtjs/toast'
+    '@nuxtjs/toast',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Axios module configuration
