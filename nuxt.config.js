@@ -55,7 +55,7 @@ module.exports = {
     '@nuxtjs/bulma',
     '@nuxtjs/pwa',
     '@nuxtjs/toast',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv, { systemvars: true }'
   ],
   /*
   ** Axios module configuration
