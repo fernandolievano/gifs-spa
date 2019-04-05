@@ -49,7 +49,11 @@ export const actions = {
     // commit('SET_PAGINATION', response.pagination)
   },
   async searchGifs({ commit, state }) {
-    const response = await this.$axios.$get()
+    const response = await this.$axios.$get(
+      `https://api.tenor.com/v1/search?key=${env.API_KEY}&q=${
+        state.query
+      }&media_filter=minimal`
+    )
     commit('SET_RESULTS', response.results)
     // commit('SET_PAGINATION', response.pagination)
   },

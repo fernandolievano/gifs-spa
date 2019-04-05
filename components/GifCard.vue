@@ -3,12 +3,14 @@
     <div class="card-image">
       <div class="gif-overlay">
         <div class="gif-container">
-          <img v-lazy="gif.media[0].gif.url" alt="gif de tenor" class="gif" lazy="loading">
+          <a :href="gif.url" target="_blank">
+            <img v-lazy="gif.media[0].gif.url" alt="gif de tenor" class="gif" lazy="loading">
+          </a>
         </div>
         <div v-if="gif.title" class="text-hover">
-          <small class="is-italic is-size-8 small-hover has-text-light">
+          <p class="is-italic is-size-8 small-hover has-text-light">
             {{ gif.title }}
-          </small>
+          </p>
         </div>
       </div>
     </div>
@@ -136,7 +138,7 @@ img[lazy="loading"] {
 }
 .gif-overlay .text-hover {
  position: absolute;
- top: 0;
+ top: 50%;
  height: 100%;
  width: 100%;
  opacity: 0;
@@ -149,9 +151,10 @@ img[lazy="loading"] {
  opacity: 1;
 }
 .small-hover {
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.80);
+  /* border-radius: 20px; */
   padding: 1em;
+  width: 100%;
 }
 
 footer {

@@ -6,9 +6,9 @@
           <h1 id="busqueda" class="encabezado">
             Resultados...
           </h1>
-          <h5 class="is-size-5">
+          <!-- <h5 class="is-size-5">
             ¡{{ pagination.total_count | numero }} resultados por ver!
-          </h5>
+          </h5> -->
         </div>
         
         <transition v-else appear appear-active-class="animated flash">
@@ -37,7 +37,7 @@
           :gif="gif"
         />
       </div>
-      <Pagination v-if="pagination" page="resultados" :pagination-data="pagination" />
+      <!-- <Pagination v-if="pagination" page="resultados" :pagination-data="pagination" /> -->
     </div>
   </section>
 </template>

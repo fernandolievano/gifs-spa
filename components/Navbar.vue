@@ -23,9 +23,6 @@
         <n-link to="/tendencias/gifs" class="navbar-item">
           Gifs Populares
         </n-link>
-        <n-link to="/tendencias/stickers" class="navbar-item">
-          Stickers populares
-        </n-link>
       </div>
     </div>
     <div class="navbar-end">
@@ -73,7 +70,7 @@ export default {
     ...mapActions(['searchGifs', 'setQuery', 'resetOffset']),
     async search() {
       this.isSearching = true
-      await this.resetOffset()
+      // await this.resetOffset()
       await this.searchGifs()
       this.isSearching = false
       this.$router.push({ name: 'resultados' })
