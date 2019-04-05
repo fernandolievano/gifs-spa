@@ -25,7 +25,4 @@ export default {}
   margin: auto;
   bottom: 0;
 }
-.is-size-8 {
-  font-size: 0.65em;
-}
 </style>

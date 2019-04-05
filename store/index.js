@@ -1,3 +1,5 @@
+import env from '~/env'
+
 export const state = () => ({
   gifs: [],
   stickers: [],
@@ -6,16 +8,12 @@ export const state = () => ({
   limitResults: 15,
   rating: 'g',
   query: '',
-  offset: 0,
   pagination: null
 })
 
 export const mutations = {
   SET_GIFS(state, gifs) {
     state.gifs = gifs
-  },
-  SET_STICKERS(state, stickers) {
-    state.stickers = stickers
   },
   SET_RESULTS(state, results) {
     state.results = results
@@ -41,34 +39,19 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchGifs({ commit, state }) {
+  async fetchGifs({ commit }) {
     const response = await this.$axios.$get(
-      `https://api.giphy.com/v1/gifs/trending?api_key=${
-        process.env.API_KEY
-      }&limit=${state.limit}&rating=${state.rating}&offset=${state.offset}`
+      `https://api.tenor.com/v1/trending?key=${
+        env.API_KEY
+      }&media_filter=minimal`
     )
-    commit('SET_GIFS', response.data)
-    commit('SET_PAGINATION', response.pagination)
-  },
-  async fetchStickers({ commit, state }) {
-    const response = await this.$axios.$get(
-      `https://api.giphy.com/v1/stickers/trending?api_key=${
-        process.env.API_KEY
-      }&limit=${state.limit}&rating=${state.rating}&offset=${state.offset}`
-    )
-    commit('SET_STICKERS', response.data)
-    commit('SET_PAGINATION', response.pagination)
+    commit('SET_GIFS', response.results)
+    // commit('SET_PAGINATION', response.pagination)
   },
   async searchGifs({ commit, state }) {
-    const response = await this.$axios.$get(
-      `https://api.giphy.com/v1/gifs/search?api_key=${
-        process.env.API_KEY
-      }&limit=${state.limit}&rating=${state.rating}&q=${state.query}&offset=${
-        state.offset
-      }`
-    )
-    commit('SET_RESULTS', response.data)
-    commit('SET_PAGINATION', response.pagination)
+    const response = await this.$axios.$get()
+    commit('SET_RESULTS', response.results)
+    // commit('SET_PAGINATION', response.pagination)
   },
   async resultsNextPage({ commit, dispatch }) {
     await commit('NEXT_PAGE')
@@ -85,17 +68,6 @@ export const actions = {
   async gifsPreviousPage({ commit, dispatch }) {
     await commit('PREVIOUS_PAGE')
     dispatch('fetchGifs')
-  },
-  async stickersNextPage({ commit, dispatch }) {
-    await commit('NEXT_PAGE')
-    dispatch('fetchStickers')
-  },
-  async stickersPreviousPage({ commit, dispatch }) {
-    await commit('PREVIOUS_PAGE')
-    dispatch('fetchStickers')
-  },
-  resetOffset({ commit }) {
-    commit('RESET_OFFSET')
   },
   setQuery({ commit }, query) {
     commit('SET_QUERY', query)

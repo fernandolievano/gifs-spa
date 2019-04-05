@@ -37,6 +37,9 @@ html {
 .encabezado {
   font-size: 4em;
 }
+.is-size-8 {
+  font-size: 0.65em;
+}
 ::-webkit-scrollbar {
   width: 8px;
   background-color: turquoise;

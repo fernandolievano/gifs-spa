@@ -1,16 +1,20 @@
 <template lang="html">
   <div class="card shadow has-text-centered" :class="randomBackground">
     <div class="card-image">
-      <img v-lazy="gif.images.downsized.url" :alt="gif.slug" class="gif" lazy="loading">
-    </div>
-    <div class="card-content">
-      <small class="is-italic" :class="[darkText ? 'has-text-grey-dark' : 'has-text-white-ter']">
-        {{ gif.title }}
-      </small>
+      <div class="gif-overlay">
+        <div class="gif-container">
+          <img v-lazy="gif.media[0].gif.url" alt="gif de tenor" class="gif" lazy="loading">
+        </div>
+        <div v-if="gif.title" class="text-hover">
+          <small class="is-italic is-size-8 small-hover has-text-light">
+            {{ gif.title }}
+          </small>
+        </div>
+      </div>
     </div>
     <footer class="card-footer">
       <div class="card-footer-item">
-        <button class="button button-gradient" @click="copyLink(gif.bitly_url)">
+        <button class="button button-gradient" @click="copyLink(gif.media[0].gif.url)">
           <div class="icon">
             <i class="fas fa-link" />
           </div>
@@ -74,18 +78,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.card {
+/* .card {
   padding: 0.5em;
-}
-.gif {
-  width: auto;
-  height: 10em;
-  opacity: .75;
-  transition: linear .5s;
-}
-.gif:hover {
-  opacity: 1;
-}
+} */
+
 img[lazy="loading"] {
   background-image: url('/loading.gif');
   background-repeat: no-repeat;
@@ -113,9 +109,6 @@ img[lazy="loading"] {
   -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
 }
-.card-content {
-  height: 8em;
-}
 .card-footer {
   background: none !important;
   border: none;
@@ -131,6 +124,36 @@ img[lazy="loading"] {
   background: linear-gradient(to bottom, #633974, #1a5276);
   color: #d6dbdf;
 }
+.gif-overlay {
+  position: relative;
+  width: 100%;
+}
+.gif {
+  width: auto;
+  height: 8em;
+  opacity: .80;
+  transition: linear .5s;
+}
+.gif-overlay .text-hover {
+ position: absolute;
+ top: 0;
+ height: 100%;
+ width: 100%;
+ opacity: 0;
+ transition: .5s ease;
+}
+.gif-overlay:hover .text-hover {
+ opacity: 1;
+}
+.gif-overlay:hover .gif {
+ opacity: 1;
+}
+.small-hover {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  padding: 1em;
+}
+
 footer {
   margin-top: 0;
 }
