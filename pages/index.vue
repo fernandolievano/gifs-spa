@@ -24,6 +24,9 @@
           <GifCard :gif="gif" />
         </div>
       </div>
+      <div v-if="response !== null" class="column is-full">
+        <ErrorKey :error="hasErrorKey" />
+      </div>
     </article>
   </section>
 </template>
@@ -35,8 +38,7 @@ export default {
   name: 'Gifs',
   data() {
     return {
-      showTrendingGifs: false,
-      response: null
+      showTrendingGifs: false
     }
   },
   head() {
@@ -45,7 +47,10 @@ export default {
     }
   },
   computed: {
-    ...mapState(['gifs'])
+    ...mapState(['gifs', 'response']),
+    hasErrorKey() {
+      return this.response.error === 'invalid key'
+    }
   },
   async mounted() {
     this.$toast.show('Cargando contenido...')

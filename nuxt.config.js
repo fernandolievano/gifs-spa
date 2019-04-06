@@ -1,7 +1,12 @@
 const pkg = require('./package')
+require('dotenv').config()
 
 module.exports = {
   mode: 'spa',
+
+  env: {
+    key: process.env.API_KEY
+  },
 
   /*
   ** Headers of the page
@@ -55,7 +60,7 @@ module.exports = {
     '@nuxtjs/bulma',
     '@nuxtjs/pwa',
     '@nuxtjs/toast',
-    ['@nuxtjs/dotenv', { systemvars: true }]
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Axios module configuration

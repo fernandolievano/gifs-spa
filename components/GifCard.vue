@@ -80,9 +80,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
-/* .card {
+.card {
   padding: 0.5em;
-} */
+}
 
 img[lazy="loading"] {
   background-image: url('/loading.gif');

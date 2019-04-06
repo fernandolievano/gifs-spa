@@ -37,7 +37,9 @@
           :gif="gif"
         />
       </div>
-      <!-- <Pagination v-if="pagination" page="resultados" :pagination-data="pagination" /> -->
+      <div v-if="response !== null" class="column is-full">
+        <ErrorKey :error="hasErrorKey" />
+      </div>
     </div>
   </section>
 </template>
@@ -57,8 +59,11 @@ export default {
   computed: {
     ...mapState({
       resultados: 'results',
-      pagination: 'pagination'
-    })
+      response: 'response'
+    }),
+    hasErrorKey() {
+      return this.response.error === 'invalid key'
+    }
   }
 }
 </script>
