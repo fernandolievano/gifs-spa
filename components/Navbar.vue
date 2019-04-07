@@ -20,7 +20,7 @@
     </div>
     <div class="navbar-menu" :class="[showMenu ? 'is-active' : '']">
       <div class="navbar-start">
-        <n-link to="/tendencias/gifs" class="navbar-item">
+        <n-link to="/tendencias/gifs" class="navbar-item has-text-light">
           Gifs Populares
         </n-link>
       </div>
@@ -30,26 +30,29 @@
         <p>Buscando gifs...</p> <i class="far fa-smile-wink" />
       </div>
       <div class="navbar-item">
-        <div class="control has-icons-left">
-          <input
-            v-model="query"
-            type="text"
-            class="input"
-            placeholder="Busca tus gifs vía Tenor"
-            @focus="success = false"
-            @keyup.enter="search()"
-            @input="setQuery(query)"
-          >
-          <span class="icon is-left is-small">
-            <i class="fas fa-search" />
-          </span>
+        <div class="field has-addons">
+          <div class="control has-icons-left">
+            <input
+              v-model="query"
+              type="text"
+              class="input"
+              placeholder="Busca tus gifs vía Tenor"
+              @focus="success = false"
+              @keyup.enter="search()"
+              @input="setQuery(query)"
+            >
+            <span class="icon is-left is-small">
+              <i class="fas fa-search" />
+            </span>
+          </div>
+          <div class="control">
+            <button class="button is-primary" @click="search()">
+              Buscar
+            </button>
+          </div>
         </div>
       </div>
-      <div class="navbar-item">
-        <button class="button is-primary is-outlined" @click="search()">
-          Buscar
-        </button>
-      </div>
+      <div class="navbar-item has-text-right" />
     </div>
   </nav>
 </template>
@@ -70,7 +73,7 @@ export default {
     ...mapActions(['searchGifs', 'setQuery', 'resetOffset']),
     async search() {
       this.isSearching = true
-      await this.searchGifs(15)
+      await this.searchGifs(25)
       this.isSearching = false
       this.$router.push({ name: 'resultados' })
     },
@@ -98,7 +101,7 @@ nav {
   background-color: transparent;
 }
 .navbar-item {
-  transition: ease .5s;
+  transition: ease 0.5s;
 }
 .navbar-item:hover {
   background-color: transparent;

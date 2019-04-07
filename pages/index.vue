@@ -50,27 +50,22 @@ import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'Gifs',
-  data() {
-    return {
-      showTrendingGifs: false
-    }
-  },
   head() {
     return {
       title: 'Los mejores gifs para vos - Geefs'
     }
   },
   computed: {
-    ...mapState(['gifs', 'response']),
+    ...mapState(['response']),
     hasErrorKey() {
       return this.response.error === 'invalid key'
     }
   },
-  async mounted() {
-    this.$toast.show('Cargando contenido...')
-    await this.fetchGifs(12)
-    this.$toast.clear()
-  },
+  // async mounted() {
+  //   this.$toast.show('Cargando contenido...')
+  //   await this.fetchGifs(12)
+  //   this.$toast.clear()
+  // },
   methods: {
     ...mapActions(['fetchGifs'])
   }

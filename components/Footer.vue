@@ -10,9 +10,12 @@
         </a>
       </p>
       <p class="is-size-8">
-        and <span class="icon has-text-primary"><i class="fas fa-code" /></span> with
-        <span class="icon has-text-danger"><i class="fas fa-heart" /></span>
+        and <span class=" has-text-primary"><i class="fas fa-code" /></span> with
+        <span class=" has-text-danger"><i class="fas fa-heart" /></span>
         by <a class="has-text-grey" href="https://github.com/fernandolievano" target="_blank">Fernando Liévano</a>
+      </p>
+      <p class="is-size-8">
+        <span class="has-text-primary">Copyright(c)</span> 2019 <a class="has-text-grey" href="https://github.com/fernandolievano" target="_blank">Fernando Liévano</a>
       </p>
     </div>
   </footer>
@@ -26,4 +29,17 @@ export default {}
 .attribution {
   width: 15%;
 }
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .attribution {
+    width: 50%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .attribution {
+    width: 50%;
+  }
+}
+
 </style>

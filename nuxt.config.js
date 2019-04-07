@@ -62,6 +62,12 @@ module.exports = {
     '@nuxtjs/toast',
     '@nuxtjs/dotenv'
   ],
+
+  icon: {
+    iconSrc: '/geef.svg',
+    iconFileName: 'geef.svg'
+  },
+
   /*
   ** Axios module configuration
   */
