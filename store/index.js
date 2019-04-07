@@ -1,5 +1,6 @@
 export const state = () => ({
   gifs: [],
+  categories: [],
   results: [],
   query: '',
   next: null,
@@ -11,6 +12,9 @@ export const state = () => ({
 export const mutations = {
   SET_GIFS(state, gifs) {
     state.gifs = gifs
+  },
+  SET_CATEGORIES(state, categories) {
+    state.categories = categories
   },
   SET_RESULTS(state, results) {
     state.results = results
@@ -47,6 +51,20 @@ export const actions = {
       `https://api.tenor.com/v1/anonid?key=${process.env.key}`
     )
     commit('SET_ANON_ID', response.anon_id)
+  },
+  async fetchCategories({ commit, state }) {
+    const response = await this.$axios.$get(
+      `https://api.tenor.com/v1/categories?key=${process.env.key}&anon_id${
+        state.anon_id
+      }&type=trending`
+    )
+    commit('SET_CATEGORIES', response.tags)
+    commit('SET_RESPONSE', response)
+  },
+  async fetchByCategory({ commit }, url) {
+    const response = await this.$axios.$get(url)
+    commit('SET_GIFS', response.results)
+    commit('SET_RESPONSE', response)
   },
   async fetchGifs({ commit, state }, limit) {
     const response = await this.$axios.$get(

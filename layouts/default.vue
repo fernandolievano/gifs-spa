@@ -9,16 +9,9 @@
 <script>
 import MainNavbar from '~/components/Navbar.vue'
 import MainFooter from '~/components/Footer.vue'
-import { mapActions } from 'vuex'
 
 export default {
-  components: { MainNavbar, MainFooter },
-  created() {
-    this.getAnonymousID()
-  },
-  methods: {
-    ...mapActions(['getAnonymousID'])
-  }
+  components: { MainNavbar, MainFooter }
 }
 </script>
 
@@ -32,7 +25,7 @@ html {
   width: 100%;
   min-width: 100%;
   position: relative;
-  scrollbar-color: blueviolet turquoise;
+  scrollbar-color: #4400aa turquoise;
   scrollbar-width: thin;
 }
 .footer {
@@ -52,6 +45,6 @@ html {
   background-color: turquoise;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: blueviolet;
+  background-color: #4400aa;
 }
 </style>
