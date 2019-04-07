@@ -40,7 +40,7 @@ export default {
   computed: {
     ...mapState(['gifs', 'next'])
   },
-  async mounted() {
+  async created() {
     this.$toast.show('Cargando contenido...')
     await this.fetch(15)
     this.$toast.clear()

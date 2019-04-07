@@ -1,5 +1,10 @@
 <template>
-  <div class="column is-narrow">
+  <div
+    class="column is-narrow"
+    data-aos="flip-left"
+    data-aos-easing="ease-out-cubic"
+    data-aos-duration="2000"
+  >
     <a @click="goTo(category.path, category.name)">
       <div class="card is-shadowless is-borderless category">
         <h4 class="is-size-4 has-text-centered">

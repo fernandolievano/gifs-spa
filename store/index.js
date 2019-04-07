@@ -6,7 +6,8 @@ export const state = () => ({
   next: null,
   position: '',
   response: null,
-  anon_id: ''
+  anon_id: '',
+  locale: 'es-SV'
 })
 
 export const mutations = {
@@ -56,7 +57,7 @@ export const actions = {
     const response = await this.$axios.$get(
       `https://api.tenor.com/v1/categories?key=${process.env.key}&anon_id${
         state.anon_id
-      }&type=trending`
+      }&type=trending&locale=${state.locale}`
     )
     commit('SET_CATEGORIES', response.tags)
     commit('SET_RESPONSE', response)
@@ -72,7 +73,7 @@ export const actions = {
         process.env.key
       }&media_filter=minimal&anon_id=${state.anon_id}&limit=${limit}&pos=${
         state.position
-      }`
+      }&locale=${state.locale}`
     )
     commit('SET_RESPONSE', response)
     commit('SET_GIFS', response.results)
@@ -82,7 +83,7 @@ export const actions = {
     const response = await this.$axios.$get(
       `https://api.tenor.com/v1/search?key=${process.env.key}&q=${
         state.query
-      }&media_filter=minimal&anon_id=${state.anon_id}`
+      }&media_filter=minimal&anon_id=${state.anon_id}&locale=${state.locale}`
     )
     commit('SET_RESPONSE', response)
     commit('SET_RESULTS', response.results)

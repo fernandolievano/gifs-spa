@@ -8,7 +8,7 @@
           </h1>
         </div>
       </div>
-      <div v-if="gifs.length > 0" class="columns is-multiline is-vcentered">
+      <div v-if="gifs.length > 0" class="columns is-centered is-multiline is-vcentered">
         <div
           v-for="gif in gifs"
           :key="gif.id"

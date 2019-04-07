@@ -17,6 +17,11 @@
     <p>
       <small class="is-size-7 has-text-light">vía <img src="/tenor.svg" alt="tenor" class="tenor-logo"></small>
     </p>
+    <p v-if="gif.tags.length > 0">
+      <span v-for="tag in tags" :key="tag">
+        {{ tag }}
+      </span>
+    </p>
     <footer class="card-footer">
       <div class="card-footer-item">
         <button class="button button-gradient" @click="copyLink(gif.media[0].gif.url)">
