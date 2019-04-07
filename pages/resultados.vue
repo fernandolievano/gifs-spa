@@ -37,9 +37,9 @@
           :gif="gif"
         />
       </div>
-      <div v-if="response !== null" class="column is-full">
+      <!-- <div v-if="response !== null" class="column is-full">
         <ErrorKey :error="hasErrorKey" />
-      </div>
+      </div> -->
     </div>
   </section>
 </template>

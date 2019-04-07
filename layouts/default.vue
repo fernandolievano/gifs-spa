@@ -9,9 +9,16 @@
 <script>
 import MainNavbar from '~/components/Navbar.vue'
 import MainFooter from '~/components/Footer.vue'
+import { mapActions } from 'vuex'
 
 export default {
-  components: { MainNavbar, MainFooter }
+  components: { MainNavbar, MainFooter },
+  created() {
+    this.getAnonymousID()
+  },
+  methods: {
+    ...mapActions(['getAnonymousID'])
+  }
 }
 </script>
 

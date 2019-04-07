@@ -14,15 +14,29 @@
           <p><b>Geefs</b> es tu lugar ideal para ver y buscar los mejores gifs para compartirlos con tus amigos en tus redes sociales <i class="far fa-smile-wink" /></p>
         </div>
         <div class="column is-full">
-          <h1 class="encabezado">
+          <!-- <h1 class="encabezado">
             Tendencias 
-          </h1>
+          </h1> -->
         </div>
       </div>
       <div class="columns is-multiline is-centered">
-        <div v-for="gif in gifs" :key="gif.id" class="column is-4">
-          <GifCard :gif="gif" />
+        <!-- <div v-for="gif in gifs" :key="gif.id" class="column is-4">
+          <GifCard
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            :gif="gif"
+          />
         </div>
+        <div class="column is-full">
+          <n-link
+            to="/tendencias/gifs"
+            class="button is-fullwidth"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
+            Ver más...
+          </n-link>
+        </div> -->
       </div>
       <div v-if="response !== null" class="column is-full">
         <ErrorKey :error="hasErrorKey" />
@@ -32,7 +46,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'Gifs',
@@ -54,8 +68,11 @@ export default {
   },
   async mounted() {
     this.$toast.show('Cargando contenido...')
-    await this.$store.dispatch('fetchGifs', 12)
+    await this.fetchGifs(12)
     this.$toast.clear()
+  },
+  methods: {
+    ...mapActions(['fetchGifs'])
   }
 }
 </script>

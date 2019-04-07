@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <Pagination v-if="pagination" page="gifs" :pagination-data="pagination" />
+    <!-- <Pagination v-if="next" page="gifs" :next-gifs="next" /> -->
   </section>
 </template>
 
@@ -38,7 +38,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['gifs', 'pagination'])
+    ...mapState(['gifs', 'next'])
   },
   async mounted() {
     this.$toast.show('Cargando contenido...')

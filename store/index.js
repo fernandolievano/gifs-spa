@@ -1,13 +1,11 @@
 export const state = () => ({
   gifs: [],
   results: [],
-  limit: 15,
-  limitResults: 15,
-  rating: 'g',
-  next: null,
   query: '',
-  pagination: null,
-  response: null
+  next: null,
+  position: '',
+  response: null,
+  anon_id: ''
 })
 
 export const mutations = {
@@ -24,58 +22,69 @@ export const mutations = {
     state.query = query
   },
   NEXT_PAGE(state) {
-    state.offset += state.limit
+    state.position = Number(state.position) + state.next
   },
   PREVIOUS_PAGE(state) {
-    state.offset -= state.limit
+    state.position = Number(state.position) - state.next
   },
-  RESET_OFFSET(state) {
-    state.offset = 0
+  RESET_POSITION(state) {
+    state.position = 0
   },
-  SET_PAGINATION(state, value) {
+  SET_NEXT(state, value) {
     state.next = value
   },
   SET_RESPONSE(state, value) {
     state.response = value
+  },
+  SET_ANON_ID(state, value) {
+    state.anon_id = value
   }
 }
 
 export const actions = {
-  async fetchGifs({ commit }) {
+  async getAnonymousID({ commit }) {
+    const response = await this.$axios.$get(
+      `https://api.tenor.com/v1/anonid?key=${process.env.key}`
+    )
+    commit('SET_ANON_ID', response.anon_id)
+  },
+  async fetchGifs({ commit, state }, limit) {
     const response = await this.$axios.$get(
       `https://api.tenor.com/v1/trending?key=${
         process.env.key
-      }&media_filter=minimal`
+      }&media_filter=minimal&anon_id=${state.anon_id}&limit=${limit}&pos=${
+        state.position
+      }`
     )
     commit('SET_RESPONSE', response)
     commit('SET_GIFS', response.results)
-    commit('SET_PAGINATION', response.next)
+    commit('SET_NEXT', Number(response.next))
   },
-  async searchGifs({ commit, state }) {
+  async searchGifs({ commit, state }, limit) {
     const response = await this.$axios.$get(
       `https://api.tenor.com/v1/search?key=${process.env.key}&q=${
         state.query
-      }&media_filter=minimal`
+      }&media_filter=minimal&anon_id=${state.anon_id}`
     )
     commit('SET_RESPONSE', response)
     commit('SET_RESULTS', response.results)
-    commit('SET_PAGINATION', response.next)
+    commit('SET_NEXT', Number(response.next))
   },
   async resultsNextPage({ commit, dispatch }) {
     await commit('NEXT_PAGE')
-    dispatch('searchGifs')
+    dispatch('searchGifs', 18)
   },
   async resultsPreviousPage({ commit, dispatch }) {
     await commit('PREVIOUS_PAGE')
-    dispatch('searchGifs')
+    dispatch('searchGifs', 18)
   },
   async gifsNextPage({ commit, dispatch }) {
     await commit('NEXT_PAGE')
-    dispatch('fetchGifs')
+    dispatch('fetchGifs', 15)
   },
   async gifsPreviousPage({ commit, dispatch }) {
     await commit('PREVIOUS_PAGE')
-    dispatch('fetchGifs')
+    dispatch('fetchGifs', 15)
   },
   setQuery({ commit }, query) {
     commit('SET_QUERY', query)

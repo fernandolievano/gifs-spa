@@ -1,19 +1,19 @@
 <template>
-  <nav class="navbar is-black is-fixed-bottom">
+  <nav class="navbar is-black">
     <div class="navbar-menu has-text-centered is-active">
       <div class="navbar-start ">
-        <a v-if="!prevDisabled" href="#" class="navbar-item " @click="prev(page)">
+        <a href="#" class="navbar-item " @click="prevPage(page)">
           <span class="icon is-medium has-text-link">
             <i class="fas fa-caret-left" />
           </span> 
           Anterior
         </a>
       </div>
-      <small class="navbar-item">
+      <!-- <small class="navbar-item">
         {{ paginationData.offset + paginationData.count | numero }} de {{ paginationData.total_count | numero }}
-      </small>
+      </small> -->
       <div class="navbar-end">
-        <a v-if="!nextDisabled" href="#" class=" navbar-item" @click="next(page)">
+        <a href="#" class=" navbar-item" @click="nextPage(page)">
           Siguiente 
           <span class="icon is-medium has-text-link">
             <i class="fas fa-caret-right" />
@@ -27,28 +27,23 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
-  head: {
-    bodyAttrs: {
-      class: 'has-navbar-fixed-bottom'
-    }
-  },
   props: {
     page: {
       type: String,
       required: true
     },
-    paginationData: {
-      type: Object,
+    nextGifs: {
+      type: Number,
       required: true
     }
   },
   computed: {
     prevDisabled() {
-      return this.paginationData.offset === 0
-    },
-    nextDisabled() {
-      return this.paginationData.offset === this.paginationData.total_count - 1
+      return this.nextGifs < 0
     }
+    // nextDisabled() {
+    //   return this.paginationData.offset === this.paginationData.total_count - 1
+    // }
   },
   methods: {
     ...mapActions({
@@ -59,7 +54,7 @@ export default {
       siguienteResultados: 'resultsNextPage',
       anteriorResultados: 'resultsPreviousPage'
     }),
-    async next(page) {
+    async nextPage(page) {
       switch (page) {
         case 'gifs':
           this.$toast.show('Cargando contenido...')
@@ -83,7 +78,7 @@ export default {
           break
       }
     },
-    async prev(page) {
+    async prevPage(page) {
       switch (page) {
         case 'gifs':
           this.$toast.show('Cargando contenido...')

@@ -70,8 +70,7 @@ export default {
     ...mapActions(['searchGifs', 'setQuery', 'resetOffset']),
     async search() {
       this.isSearching = true
-      // await this.resetOffset()
-      await this.searchGifs()
+      await this.searchGifs(15)
       this.isSearching = false
       this.$router.push({ name: 'resultados' })
     },

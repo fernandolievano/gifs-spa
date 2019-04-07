@@ -2,6 +2,9 @@
   <footer class="footer">
     <div class="content has-text-centered has-text-light">
       <p>
+        <img src="/Powered_by_Tenor_OneLine.svg" class="attribution" alt="Powered By Tenor">
+      </p>
+      <p>
         <a href="https://bulma.io" target="_blank">
           <img src="https://bulma.io/images/made-with-bulma--semiwhite.png" alt="Made with Bulma" width="128" height="24">
         </a>
@@ -20,9 +23,7 @@ export default {}
 </script>
 
 <style lang="css" scoped>
-.nuxt-icon {
-  width: 1%;
-  margin: auto;
-  bottom: 0;
+.attribution {
+  width: 15%;
 }
 </style>

@@ -81,7 +81,7 @@ export default {
 
 <style lang="css" scoped>
 .card {
-  padding: 0.5em;
+  padding: 0.5em 0;
 }
 
 img[lazy="loading"] {
