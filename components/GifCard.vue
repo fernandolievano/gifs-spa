@@ -14,6 +14,9 @@
         </div>
       </div>
     </div>
+    <p>
+      <small class="is-size-7 has-text-light">vía <img src="/tenor.svg" alt="tenor" class="tenor-logo"></small>
+    </p>
     <footer class="card-footer">
       <div class="card-footer-item">
         <button class="button button-gradient" @click="copyLink(gif.media[0].gif.url)">
@@ -82,6 +85,10 @@ export default {
 <style lang="css" scoped>
 .card {
   padding: 0.5em 0;
+}
+
+.tenor-logo {
+  width: 3em;
 }
 
 img[lazy="loading"] {

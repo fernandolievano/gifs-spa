@@ -35,7 +35,7 @@
             v-model="query"
             type="text"
             class="input"
-            placeholder="Busca tus gifs favoritos"
+            placeholder="Busca tus gifs vía Tenor"
             @focus="success = false"
             @keyup.enter="search()"
             @input="setQuery(query)"
