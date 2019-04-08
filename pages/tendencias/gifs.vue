@@ -34,7 +34,7 @@ import { mapActions, mapState } from 'vuex'
 export default {
   head() {
     return {
-      title: 'Gifs del momento - Geef'
+      title: 'Gifs del momento - Geefs'
     }
   },
   computed: {

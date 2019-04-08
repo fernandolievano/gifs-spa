@@ -24,11 +24,20 @@
     </p>
     <footer class="card-footer">
       <div class="card-footer-item">
-        <button class="button button-gradient" @click="copyLink(gif.media[0].gif.url)">
-          <div class="icon">
+        <button class="button is-medium button-gradient" @click="copyLink(gif.media[0].gif.url)">
+          <div class="icon is-small">
             <i class="fas fa-link" />
           </div>
         </button>
+      </div>
+      <!-- <div class="card-footer-item">
+        <vue-goodshare-facebook has_icon :page_url="gif.media[0].gif.url" class="button is-medium" />
+      </div> -->
+      <div class="card-footer-item">
+        <vue-goodshare-twitter has_icon :page_url="gif.media[0].gif.url" class="button is-medium" />
+      </div>
+      <div class="card-footer-item">
+        <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-medium" />
       </div>
     </footer>
   </div>
@@ -92,6 +101,10 @@ export default {
   padding: 0.5em 0;
 }
 
+.card-footer-item {
+  border: none;
+}
+
 .tenor-logo {
   width: 3em;
 }
@@ -145,6 +158,7 @@ img[lazy="error"] {
   background: linear-gradient(to bottom, #633974, #1a5276);
   color: #d6dbdf;
 }
+
 .gif-overlay {
   position: relative;
   width: 100%;

@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style media="screen">
-button {
+.button {
   transition: all 0.2s linear;
 }
 </style>
