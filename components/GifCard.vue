@@ -4,7 +4,7 @@
       <div class="gif-overlay">
         <div class="gif-container">
           <a :href="gif.url" target="_blank">
-            <img v-lazy="gif.media[0].gif.url" alt="gif de tenor" class="gif" lazy="loading">
+            <img v-lazy="gif.media[0].gif.url" alt="gif de tenor" class="gif" lazy="loading, error">
           </a>
         </div>
         <div v-if="gif.title" class="text-hover">
@@ -101,7 +101,14 @@ img[lazy="loading"] {
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  background-size: 15%
+  background-size: 32px;
+}
+img[lazy="error"] {
+  background-image: url('/error.gif');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 100%;
 }
 .has-background-purple {
   background-color: #421b9b;

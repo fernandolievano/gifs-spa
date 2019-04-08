@@ -35,6 +35,12 @@ module.exports = {
   */
   loading: { color: 'turquoise' },
 
+  loadingIndicator: {
+    name: 'pulse',
+    color: 'turquoise',
+    background: 'white'
+  },
+
   /*
   ** Global CSS
   */
