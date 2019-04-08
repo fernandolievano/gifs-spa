@@ -22,23 +22,23 @@
         {{ tag }}
       </span>
     </p>
-    <footer class="card-footer">
-      <div class="card-footer-item">
-        <button class="button is-medium button-gradient" @click="copyLink(gif.media[0].gif.url)">
+    <footer class="card-footer columns is-multiline is-mobile is-vcentered">
+      <div class="card-footer-item column is-3">
+        <vue-goodshare-facebook has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
+      </div>
+      <div class="card-footer-item column is-3">
+        <vue-goodshare-twitter has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
+      </div>
+      <div class="card-footer-item column is-3">
+        <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
+      </div>
+      <div class="card-footer-item column is-3">
+        <button class="button is-small button-gradient" @click="copyLink(gif.media[0].gif.url)">
           <div class="icon is-small">
             <i class="fas fa-link" />
           </div>
         </button>
       </div>
-      <!-- <div class="card-footer-item">
-        <vue-goodshare-facebook has_icon :page_url="gif.media[0].gif.url" class="button is-medium" />
-      </div> -->
-      <div class="card-footer-item">
-        <vue-goodshare-twitter has_icon :page_url="gif.media[0].gif.url" class="button is-medium" />
-      </div>
-      <!-- <div class="card-footer-item">
-        <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-medium" />
-      </div> -->
     </footer>
   </div>
 </template>
@@ -157,6 +157,9 @@ img[lazy="error"] {
 .button-gradient {
   background: linear-gradient(to bottom, #633974, #1a5276);
   color: #d6dbdf;
+  padding-left: 1.15em;
+  padding-right: 1.15em;
+  text-align: center;
 }
 
 .gif-overlay {

@@ -2,19 +2,19 @@
 /* eslint-disable no-undef */
 <template>
   <section class="section">
-    <div class="container">
-      <div class="columns">
+    <article class="container">
+      <div class="columns is-multiline">
         <div class="column is-full">
           <h1 class="is-size-1-tablet is-size-2-mobile">
             Los gifs más populares del momento
           </h1>
         </div>
       </div>
-      <div class="columns is-multiline">
+      <div class="columns is-multiline is-centered">
         <div
           v-for="gif in gifs" 
           :key="gif.id"
-          class="column is-4-tablet is-8-mobile is-offset-2-mobile"
+          class="column is-4-tablet"
         >
           <GifCard
             :gif="gif"
@@ -23,8 +23,7 @@
           />
         </div>
       </div>
-    </div>
-    <!-- <Pagination v-if="next" page="gifs" :next-gifs="next" /> -->
+    </article>
   </section>
 </template>
 
