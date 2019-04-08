@@ -4,13 +4,13 @@
       <div class="columns">
         <div class="column is-full has-text-centered">
           <div v-if="resultados.length > 0">
-            <h1 id="busqueda" class="encabezado">
+            <h1 id="busqueda" class="is-size-1-tablet is-size-2-mobile">
               Resultados...
             </h1>
           </div>
         
           <transition v-else appear appear-active-class="animated flash">
-            <h1 class="encabezado has-text-danger">
+            <h1 class="is-size-1-tablet is-size-2-mobile has-text-danger">
               No hay resultados para mostrar... <span><i class="fas fa-heart-broken" /></span>
               <br>
               <n-link to="/" class="button is-primary">
@@ -24,11 +24,11 @@
         </div>
       </div>
 
-      <div v-if="resultados.length > 0" class="columns is-multiline is-vcentered">
+      <div v-if="resultados.length > 0" class="columns is-multiline is-centered is-vcentered">
         <div
           v-for="gif in resultados"
           :key="gif.id"
-          class="column is-4-tablet column is-8-mobile is-offset-2-mobile"
+          class="column is-4-tablet column is-full-mobile"
         >
           <GifCard
             data-aos="fade-up"

@@ -14,7 +14,7 @@
         <div
           v-for="gif in gifs" 
           :key="gif.id"
-          class="column is-4-tablet"
+          class="column is-4-tablet is-full-mobile"
         >
           <GifCard
             :gif="gif"
