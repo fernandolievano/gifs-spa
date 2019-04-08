@@ -21,8 +21,3 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-Important!: you have to create your own env.js and set your API_KEY like:
-
-export default {
-API_KEY: 'your_key'
-}
