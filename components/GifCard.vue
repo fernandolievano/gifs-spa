@@ -37,8 +37,8 @@
         <vue-goodshare-twitter has_icon :page_url="gif.media[0].gif.url" class="button is-medium" />
       </div>
       <!-- <div class="card-footer-item">
-        <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-medium" /> -->
-      </div>
+        <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-medium" />
+      </div> -->
     </footer>
   </div>
 </template>
