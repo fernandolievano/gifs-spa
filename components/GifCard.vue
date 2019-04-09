@@ -22,7 +22,7 @@
         {{ tag }}
       </span>
     </p>
-    <footer class="card-footer columns is-multiline is-mobile is-vcentered">
+    <footer class="card-footer columns is-centered has-text-centered is-multiline is-mobile is-vcentered">
       <div class="card-footer-item column is-3">
         <vue-goodshare-facebook has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
       </div>
