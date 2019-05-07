@@ -1,23 +1,13 @@
-# simple
+# Geefs
 
-> Simple project made with Nuxt
+> Aplicación web progresiva que te permite buscar y compartir tus gifs favoritos en tus redes sociales.
 
-## Build Setup
+## Construído con 
 
-```bash
-# install dependencies
-$ yarn install
+* [Nuxt](https://nuxtjs.org/)
+* [Bulma](https://bulma.io/)
+* [Tenor API](https://tenor.com/gifapi)
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
-
-# build for production and launch server
-$ yarn run build
-$ yarn start
-
-# generate static project
-$ yarn run generate
-```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Por
+>[Fernando Liévano](https://twitter.com/_fernandolievan)
 
