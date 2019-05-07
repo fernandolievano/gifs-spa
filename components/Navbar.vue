@@ -92,7 +92,7 @@ export default {
 
 <style lang="css" scoped>
 nav {
-  margin-bottom: 5em;
+  margin-bottom: 3em;
 }
 .brand {
   font-size: 2em;

@@ -1,9 +1,9 @@
 <template>
   <section class="section">
     <article class="container">
-      <div class="columns">
-        <div class="column is-full has-text-centered">
-          <h1 class="is-size-1">
+      <div class="columns is-multiline is-centered">
+        <div class="column is-full is-narrow has-text-centered">
+          <h1 class="is-size-1-desktop is-size-2-tablet is-size-4-mobile">
             {{ $route.params.keyword }}
           </h1>
         </div>
@@ -29,6 +29,11 @@
 import { mapState } from 'vuex'
 
 export default {
+  head() {
+    return {
+      title: `${this.$route.params.keyword} en Geefs`
+    }
+  },
   computed: {
     ...mapState(['gifs'])
   }

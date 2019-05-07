@@ -22,21 +22,24 @@
         {{ tag }}
       </span>
     </p>
-    <footer class="card-footer columns is-centered has-text-centered is-multiline is-mobile is-vcentered">
-      <div class="card-footer-item column is-3">
+    <footer class="card-footer columns is-centered has-text-centered is-multiline is-mobile is-vcentered is-1">
+      <div class="card-footer-item column">
         <vue-goodshare-facebook has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
       </div>
-      <div class="card-footer-item column is-3">
+      <div class="card-footer-item column">
         <vue-goodshare-twitter has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
       </div>
-      <div class="card-footer-item column is-3">
+      <div class="card-footer-item column">
         <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
       </div>
-      <div class="card-footer-item column is-3">
+      <div class="card-footer-item column">
         <button class="button is-small button-gradient" @click="copyLink(gif.media[0].gif.url)">
-          <div class="icon is-small">
+          <span>
+            Copiar enlace
+          </span>
+          <span class="icon is-small">
             <i class="fas fa-link" />
-          </div>
+          </span>
         </button>
       </div>
     </footer>
