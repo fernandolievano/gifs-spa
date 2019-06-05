@@ -32,7 +32,7 @@
       <div class="card-footer-item column">
         <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
       </div>
-      <div class="card-footer-item column">
+      <div class="card-footer-item column is-full">
         <button class="button is-small button-gradient" @click="copyLink(gif.media[0].gif.url)">
           <span>
             Copiar enlace
