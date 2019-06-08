@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="card shadow has-text-centered" :class="randomBackground">
+  <div class="card shadow has-text-centered gif-card" :class="randomBackground">
     <div class="card-image">
       <div class="gif-overlay">
         <div class="gif-container">
@@ -22,25 +22,26 @@
         {{ tag }}
       </span>
     </p>
-    <footer class="card-footer columns is-centered has-text-centered is-multiline is-mobile is-vcentered is-1">
-      <div class="card-footer-item column">
-        <vue-goodshare-facebook has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
-      </div>
-      <div class="card-footer-item column">
-        <vue-goodshare-twitter has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
-      </div>
-      <div class="card-footer-item column">
-        <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
-      </div>
-      <div class="card-footer-item column is-full">
-        <button class="button is-small button-gradient" @click="copyLink(gif.media[0].gif.url)">
-          <span>
-            Copiar enlace
-          </span>
-          <span class="icon is-small">
-            <i class="fas fa-link" />
-          </span>
-        </button>
+    <footer class="card-footer has-text-centered">
+      <div class="card-footer-item">
+        <div class="field is-grouped is-vcentered">
+          <div class="control">
+            <vue-goodshare-facebook has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
+          </div>
+          <div class="control">
+            <vue-goodshare-twitter has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
+          </div>
+          <div class="control">
+            <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
+          </div>
+          <div class="control">
+            <button class="button is-small button-gradient" @click="copyLink(gif.media[0].gif.url)">
+              <span class="icon is-small">
+                <i class="fas fa-link" />
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
@@ -112,14 +113,14 @@ export default {
   width: 3em;
 }
 
-img[lazy="loading"] {
+img[lazy='loading'] {
   background-image: url('/loading.gif');
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  background-size: 32px;
+  background-size: 2em;
 }
-img[lazy="error"] {
+img[lazy='error'] {
   background-image: url('/error.gif');
   background-repeat: no-repeat;
   background-position-x: center;
@@ -142,9 +143,9 @@ img[lazy="error"] {
   background-color: #dd0a35;
 }
 .shadow {
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  /* -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75); */
 }
 .card-footer {
   background: none !important;
@@ -160,9 +161,11 @@ img[lazy="error"] {
 .button-gradient {
   background: linear-gradient(to bottom, #633974, #1a5276);
   color: #d6dbdf;
-  padding-left: 1.15em;
-  padding-right: 1.15em;
+  padding: 7px 1.1em;
+  margin: 3px 1.5px;
   text-align: center;
+  align-content: center;
+  align-items: center;
 }
 
 .gif-overlay {
@@ -171,26 +174,26 @@ img[lazy="error"] {
 }
 .gif {
   width: auto;
-  height: 8em;
-  opacity: .80;
-  transition: linear .5s;
+  /* height: 8em; */
+  opacity: 0.8;
+  transition: linear 0.5s;
 }
 .gif-overlay .text-hover {
- position: absolute;
- top: 50%;
- height: 100%;
- width: 100%;
- opacity: 0;
- transition: .5s ease;
+  position: absolute;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
 }
 .gif-overlay:hover .text-hover {
- opacity: 1;
+  opacity: 1;
 }
 .gif-overlay:hover .gif {
- opacity: 1;
+  opacity: 1;
 }
 .small-hover {
-  background-color: rgba(0, 0, 0, 0.80);
+  background-color: rgba(0, 0, 0, 0.8);
   /* border-radius: 20px; */
   padding: 1em;
   width: 100%;

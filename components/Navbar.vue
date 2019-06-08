@@ -35,7 +35,7 @@
             <input
               v-model="query"
               type="text"
-              class="input"
+              class="input is-fullwidth"
               placeholder="Busca tus gifs vía Tenor"
               @focus="success = false"
               @keyup.enter="search()"
@@ -52,7 +52,6 @@
           </div>
         </div>
       </div>
-      <div class="navbar-item has-text-right" />
     </div>
   </nav>
 </template>

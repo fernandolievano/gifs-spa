@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-undef */
 <template>
   <section class="section">
     <article class="container">
@@ -10,16 +8,14 @@
           </h1>
         </div>
       </div>
-      <div class="columns is-multiline is-centered">
+      <div class="masonry-container">
         <div
           v-for="gif in gifs" 
           :key="gif.id"
-          class="column is-4-tablet is-full-mobile"
+          class="item"
         >
           <GifCard
             :gif="gif"
-            data-aos="zoom-in"
-            data-aos-duration="1500"
           />
         </div>
       </div>

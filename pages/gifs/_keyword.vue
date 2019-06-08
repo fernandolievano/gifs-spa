@@ -8,15 +8,13 @@
           </h1>
         </div>
       </div>
-      <div v-if="gifs.length > 0" class="columns is-centered is-multiline is-vcentered">
+      <div v-if="gifs.length > 0" class="masonry-container">
         <div
           v-for="gif in gifs"
           :key="gif.id"
-          class="column is-4-tablet column is-8-mobile is-offset-2-mobile"
+          class="item"
         >
           <GifCard
-            data-aos="fade-up"
-            data-aos-duration="3000"
             :gif="gif"
           />
         </div>

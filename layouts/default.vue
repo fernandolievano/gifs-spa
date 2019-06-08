@@ -1,6 +1,9 @@
 <template>
   <div>
     <MainNavbar />
+    <Message class="is-warning">
+      Actualmente estamos trabajando en actualizar Geefs
+    </Message>
     <nuxt />
     <MainFooter />
   </div>
@@ -9,9 +12,10 @@
 <script>
 import MainNavbar from '~/components/Navbar.vue'
 import MainFooter from '~/components/Footer.vue'
+import Message from '~/components/Message.vue'
 
 export default {
-  components: { MainNavbar, MainFooter }
+  components: { MainNavbar, MainFooter, Message }
 }
 </script>
 
@@ -27,7 +31,37 @@ html {
   position: relative;
   scrollbar-color: #4400aa turquoise;
   scrollbar-width: thin;
+  box-sizing: border-box;
 }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+.masonry-container {
+  column-gap: 1em;
+}
+.item {
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  .masonry-container {
+    column-count: 4;
+  }
+}
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry-container {
+    column-count: 3;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 540px) {
+  .masonry-container {
+    column-count: 2;
+  }
+}
+
 .footer {
   margin-top: 20em;
   margin-bottom: 0;

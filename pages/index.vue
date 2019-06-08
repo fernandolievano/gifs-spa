@@ -19,7 +19,7 @@
           </h1>
         </div>
         <div class="column is-full">
-          <div class="columns is-multiline is-5 is-centered">
+          <div class="columns is-multiline is-5 is-centered is-mobile">
             <Categories 
               v-for="category in categories" 
               :key="category.searchterm" 

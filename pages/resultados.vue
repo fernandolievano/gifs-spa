@@ -24,15 +24,13 @@
         </div>
       </div>
 
-      <div v-if="resultados.length > 0" class="columns is-multiline is-centered is-vcentered">
+      <div v-if="resultados.length > 0" class="masonry-container">
         <div
           v-for="gif in resultados"
           :key="gif.id"
-          class="column is-4-tablet column is-full-mobile"
+          class="item"
         >
           <GifCard
-            data-aos="fade-up"
-            data-aos-duration="3000"
             :gif="gif"
           />
         </div>
