@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="card shadow has-text-centered gif-card" :class="randomBackground">
+  <div class="card has-text-centered gif-card" :class="randomBackground">
     <div class="card-image">
       <div class="gif-overlay">
         <div class="gif-container">
@@ -118,7 +118,7 @@ img[lazy='loading'] {
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
-  background-size: 2em;
+  background-size: 5em;
 }
 img[lazy='error'] {
   background-image: url('/error.gif');
@@ -141,11 +141,6 @@ img[lazy='error'] {
 }
 .has-background-red {
   background-color: #dd0a35;
-}
-.shadow {
-  /* -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75); */
 }
 .card-footer {
   background: none !important;

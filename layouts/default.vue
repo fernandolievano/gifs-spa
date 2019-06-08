@@ -2,7 +2,12 @@
   <div>
     <MainNavbar />
     <Message class="is-warning">
-      Actualmente estamos trabajando en actualizar Geefs
+      <p>
+        <span class="icon">
+          <i class="fas fa-exclamation"></i>
+        </span>
+        <b>Actualmente estamos trabajando en actualizar Geefs</b>
+      </p>
     </Message>
     <nuxt />
     <MainFooter />
@@ -61,7 +66,9 @@ html {
     column-count: 2;
   }
 }
-
+.notification {
+  border-radius: 0;
+}
 .footer {
   margin-top: 20em;
   margin-bottom: 0;

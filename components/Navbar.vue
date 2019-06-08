@@ -77,13 +77,7 @@ export default {
       this.$router.push({ name: 'resultados' })
     },
     expand() {
-      const isActive = this.showMenu
-
-      if (isActive) {
-        this.showMenu = false
-      } else {
-        this.showMenu = true
-      }
+      this.showMenu = !this.showMenu
     }
   }
 }
