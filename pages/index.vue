@@ -8,9 +8,6 @@
           </figure>
         </div>
         <div class="column is-full-mobile is-8-tablet">
-          <h1 class="title">
-            Geefs
-          </h1>
           <p><b>Geefs</b> es tu lugar ideal para ver y buscar los mejores gifs para compartirlos con tus amigos en tus redes sociales <i class="far fa-smile-wink" /></p>
         </div>
         <div class="column is-full">
@@ -33,8 +30,8 @@
 </template>
 
 <script>
-import Categories from '~/components/CategoriesBoxes.vue'
 import { mapState, mapActions } from 'vuex'
+import Categories from '~/components/CategoriesBoxes.vue'
 
 export default {
   name: 'Gifs',

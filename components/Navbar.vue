@@ -35,18 +35,18 @@
             <input
               v-model="query"
               type="text"
-              class="input is-fullwidth"
+              class="input is-fullwidth is-primary"
               placeholder="Busca tus gifs vía Tenor"
               @focus="success = false"
               @keyup.enter="search()"
               @input="setQuery(query)"
             >
-            <span class="icon is-left is-small">
+            <span class="icon is-left is-small has-text-primary">
               <i class="fas fa-search" />
             </span>
           </div>
           <div class="control">
-            <button class="button is-primary" @click="search()">
+            <button class="button is-outlined is-primary" @click="search()">
               Buscar
             </button>
           </div>
@@ -87,6 +87,13 @@ export default {
 nav {
   margin-bottom: 3em;
 }
+.input {
+  background-color: rgba(0, 0, 0, 0.5)
+}
+::placeholder {
+  color: turquoise;
+  opacity: 0.3;
+}
 .brand {
   font-size: 2em;
 }
@@ -99,5 +106,74 @@ nav {
 .navbar-item:hover {
   background-color: transparent;
   color: turquoise;
+}
+.navbar {
+  animation: navbar-border;
+  animation-duration: 50s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes navbar-border {
+  5% {
+    border-bottom: solid 0.1rem #3300cc;
+  }
+  10% {
+    border-bottom: solid 0.1rem #33ff00;
+  }
+  15% {
+    border-bottom: solid 0.1rem #006699;
+  }
+  20% {
+    border-bottom: solid 0.1rem #663399;
+  }
+  25% {
+    border-bottom: solid 0.1rem #cc6699;
+  }
+  30% {
+    border-bottom: solid 0.1rem #ccff66;
+  }
+  35% {
+    border-bottom: solid 0.1rem #cc0099;
+  }
+  40% {
+    border-bottom: solid 0.1rem #3300cc;
+  }
+  45% {
+    border-bottom: solid 0.1rem #ffcc33;
+  }
+  50% {
+    border-bottom: solid 0.1rem #ccff33;
+  }
+  55% {
+    border-bottom: solid 0.1rem #99ffff;
+  }
+  60% {
+    border-bottom: solid 0.1rem #ff3333;
+  }
+  65% {
+    border-bottom: solid 0.1rem #990066;
+  }
+  70% {
+    border-bottom: solid 0.1rem #3333cc;
+  }
+  75% {
+    border-bottom: solid 0.1rem #cc99cc;
+  }
+  80% {
+    border-bottom: solid 0.1rem #669900;
+  }
+  85% {
+    border-bottom: solid 0.1rem #66ff00;
+  }
+  90% {
+    border-bottom: solid 0.1rem #6699ff;
+  }
+  95% {
+    border-bottom: solid 0.1rem #6600ff;
+  }
+  100% {
+    border-bottom: solid 0.1rem #cc6600;
+  }
 }
 </style>

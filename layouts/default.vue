@@ -1,14 +1,6 @@
 <template>
   <div>
     <MainNavbar />
-    <Message class="is-warning">
-      <p>
-        <span class="icon">
-          <i class="fas fa-exclamation"></i>
-        </span>
-        <b>Actualmente estamos trabajando en actualizar Geefs</b>
-      </p>
-    </Message>
     <nuxt />
     <MainFooter />
   </div>
@@ -17,10 +9,10 @@
 <script>
 import MainNavbar from '~/components/Navbar.vue'
 import MainFooter from '~/components/Footer.vue'
-import Message from '~/components/Message.vue'
+// import Message from '~/components/Message.vue'
 
 export default {
-  components: { MainNavbar, MainFooter, Message }
+  components: { MainNavbar, MainFooter /* Message */ }
 }
 </script>
 
@@ -30,7 +22,8 @@ export default {
 body,
 html {
   height: 100%;
-  background-image: url('/paper.png');
+  background-color: black;
+  color: #f8f8ff;
   width: 100%;
   min-width: 100%;
   position: relative;

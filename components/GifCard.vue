@@ -31,9 +31,9 @@
           <div class="control">
             <vue-goodshare-twitter has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
           </div>
-          <div class="control">
+          <!-- <div class="control">
             <vue-goodshare-whatsapp has_icon :page_url="gif.media[0].gif.url" class="button is-small" />
-          </div>
+          </div> -->
           <div class="control">
             <button class="button is-small button-gradient" @click="copyLink(gif.media[0].gif.url)">
               <span class="icon is-small">
