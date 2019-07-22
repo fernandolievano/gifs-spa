@@ -124,7 +124,7 @@ nav {
     border-bottom: solid 0.1rem #33ff00;
   }
   15% {
-    border-bottom: solid 0.1rem #006699;
+    border-bottom: solid 0.1rem #4f99be;
   }
   20% {
     border-bottom: solid 0.1rem #663399;

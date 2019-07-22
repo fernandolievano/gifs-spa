@@ -15,7 +15,7 @@
         by <a class="has-text-grey" href="https://github.com/fernandolievano" target="_blank">Fernando Liévano</a>
       </p>
       <p class="is-size-8">
-        <span class="has-text-primary">Copyright(c)</span> 2019 <a class="has-text-grey" href="https://twitter.com/_fernandolievan" target="_blank">Fernando Liévano</a>
+        <span class="has-text-primary">Copyright(c)</span> 2019 <a class="has-text-grey" href="https://twitter.com/fernandolievan_" target="_blank">Fernando Liévano</a>
       </p>
     </div>
   </footer>

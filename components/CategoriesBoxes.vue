@@ -6,7 +6,7 @@
     data-aos-duration="2000"
   >
     <a @click="goTo(category.path, category.name)">
-      <div class="card is-shadowless is-borderless category">
+      <div class="category card has-background-black">
         <h4 class="is-size-4 has-text-centered">
           {{ category.name }}
         </h4>
@@ -44,6 +44,7 @@ export default {
 <style>
 .category {
   transition: all 0.5s ease-in-out;
+  background-size: cover !important;
 }
 .category:hover {
   transform: scale(1.1);
