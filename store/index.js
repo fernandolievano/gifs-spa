@@ -83,7 +83,9 @@ export const actions = {
     const response = await this.$axios.$get(
       `https://api.tenor.com/v1/search?key=${process.env.key}&q=${
         state.query
-      }&media_filter=minimal&anon_id=${state.anon_id}&locale=${state.locale}`
+      }&media_filter=minimal&anon_id=${state.anon_id}&locale=${
+        state.locale
+      }&limit=${limit}`
     )
     commit('SET_RESPONSE', response)
     commit('SET_RESULTS', response.results)

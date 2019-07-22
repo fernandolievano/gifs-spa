@@ -1,7 +1,7 @@
 <template lang="html">
-  <nav class="navbar is-black" role="navigation" aria-label="Navbar">
+  <nav class="navbar is-black is-spaced" role="navigation" aria-label="Navbar">
     <div class="navbar-brand">
-      <n-link to="/" class="navbar-item brand">
+      <n-link to="/" class="navbar-item brand is-spaced">
         <img src="/geef.svg" class="logo" alt="logo">
       </n-link>
       <a
@@ -29,7 +29,7 @@
       <div v-if="isSearching" class="navbar-item">
         <p>Buscando gifs...</p> <i class="far fa-smile-wink" />
       </div>
-      <div class="navbar-item">
+      <div class="navbar-item is-expanded is-pulled-right">
         <div class="field has-addons">
           <div class="control has-icons-left">
             <input
@@ -72,7 +72,7 @@ export default {
     ...mapActions(['searchGifs', 'setQuery', 'resetOffset']),
     async search() {
       this.isSearching = true
-      await this.searchGifs(25)
+      await this.searchGifs(50)
       this.isSearching = false
       this.$router.push({ name: 'resultados' })
     },
@@ -88,11 +88,13 @@ nav {
   margin-bottom: 3em;
 }
 .input {
-  background-color: rgba(0, 0, 0, 0.5)
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f8f8ff;
+  opacity: 0.5;
 }
 ::placeholder {
   color: turquoise;
-  opacity: 0.3;
+  opacity: 0.6;
 }
 .brand {
   font-size: 2em;

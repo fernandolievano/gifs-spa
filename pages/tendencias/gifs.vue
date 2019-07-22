@@ -37,7 +37,7 @@ export default {
   },
   async created() {
     this.$toast.show('Cargando contenido...')
-    await this.fetch(15)
+    await this.fetch(30)
     this.$toast.clear()
   },
   methods: {
