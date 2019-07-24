@@ -53,7 +53,8 @@ module.exports = {
     { src: '~/plugins/aos', ssr: false },
     { src: '~/plugins/vue-lazyload', ssr: false },
     { src: '~/plugins/global' },
-    { src: '~/plugins/filters' }
+    { src: '~/plugins/filters' },
+    { src: '~plugins/ga.js', ssr: false }
   ],
 
   /*
